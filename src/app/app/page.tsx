@@ -28,14 +28,12 @@ export default function WorkspaceApp() {
 
   // Load initial settings and rate limit
   useEffect(() => {
-    // Check localStorage for saved key
     const savedKey = localStorage.getItem("docubrain_gemini_key");
     if (savedKey) {
       setCustomApiKey(savedKey);
       setDemoMode(false);
     }
 
-    // Fetch initial rate limit status
     fetchRateLimit();
   }, []);
 
@@ -63,7 +61,6 @@ export default function WorkspaceApp() {
         const data = await res.json();
         setRateLimit(data);
 
-        // Confetti burst for pleasant user feedback
         confetti({
           particleCount: 50,
           spread: 60,
@@ -111,8 +108,8 @@ export default function WorkspaceApp() {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-background">
-      {/* Top Navigation */}
+    <div className="flex flex-col h-screen overflow-hidden bg-[#080B11]">
+      {/* Top Application Navbar */}
       <Navbar
         rateLimit={rateLimit}
         onResetQuota={handleResetQuota}
@@ -121,10 +118,10 @@ export default function WorkspaceApp() {
         onToggleDemoMode={() => setDemoMode(!demoMode)}
       />
 
-      {/* Main Dual-Pane Workspace */}
-      <main className="flex-1 flex flex-col lg:flex-row min-h-0 overflow-hidden">
-        {/* Left Pane: Knowledge Document & Passage Highlighter (45% width on desktop) */}
-        <div className="h-1/2 lg:h-full lg:w-[45%] flex-shrink-0 border-b lg:border-b-0">
+      {/* Main Dual-Pane Workspace (50% / 50% split on desktop) */}
+      <main className="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden">
+        {/* Left Pane: Knowledge Document Reader & Highlight Target */}
+        <div className="h-1/2 md:h-full md:w-1/2 flex-shrink-0 border-b md:border-b-0 border-[#1E293B]">
           <DocumentViewer
             documents={documents}
             activeDocument={activeDocument}
@@ -137,8 +134,8 @@ export default function WorkspaceApp() {
           />
         </div>
 
-        {/* Right Pane: RAG Streaming Chat & Citations (55% width on desktop) */}
-        <div className="h-1/2 lg:h-full lg:w-[55%] flex flex-col min-h-0">
+        {/* Right Pane: Conversational Knowledge Engine & Streaming Markdown */}
+        <div className="h-1/2 md:h-full md:w-1/2 flex flex-col min-h-0">
           <div className="flex-1 min-h-0 overflow-hidden">
             <ChatEngine
               activeDocument={activeDocument}
@@ -153,12 +150,12 @@ export default function WorkspaceApp() {
             />
           </div>
 
-          {/* Bottom Telemetry Bar */}
+          {/* Monospace Developer Status Bar */}
           <TelemetryBar telemetry={telemetry} isStreaming={isStreaming} />
         </div>
       </main>
 
-      {/* Configuration & Upload Modals */}
+      {/* Configuration & Document Ingestion Modals */}
       <ApiKeyModal
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}

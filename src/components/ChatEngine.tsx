@@ -18,6 +18,8 @@ import {
   Copy,
   Check,
   RotateCcw,
+  CornerDownLeft,
+  Shield,
 } from "lucide-react";
 
 interface ChatEngineProps {
@@ -50,14 +52,12 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  // Default suggested questions for active document
   const suggestedQuestions = DOCUMENT_QUESTIONS[activeDocument.id] || [
     "What are the primary operational SLAs outlined in this document?",
     "Summarize the key compliance and security standards.",
     "What are the specific penalties and financial refund terms?",
   ];
 
-  // Auto scroll to bottom
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -70,7 +70,6 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
     const textToSend = (queryText || inputValue).trim();
     if (!textToSend || isStreaming) return;
 
-    // Check if client is rate limited
     if (rateLimit && rateLimit.isRateLimited) {
       return;
     }
@@ -97,7 +96,6 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
     setIsStreaming(true);
     setIsStreamingParent(true);
 
-    // Abort controller for cancellation
     const abortController = new AbortController();
     abortControllerRef.current = abortController;
 
@@ -125,7 +123,7 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
               ? {
                   ...m,
                   content:
-                    "⚠️ **Daily Query Limit Exceeded (10/10 Queries)**\n\nYou have exhausted your free daily query allowance. In a production environment, Upstash Redis enforces this sliding-window limit to protect server compute and LLM token budgets.\n\n*Click **Reset Quota** below or in the top quota meter to test again.*",
+                    "⚠️ **Daily Query Limit Exceeded (10/10 Queries)**\n\nYou have used all 10 free queries allocated under our Upstash Redis sliding-window quota.\n\n*Click **Reset Demo Quota** below to test again.*",
                   isStreaming: false,
                 }
               : m
@@ -197,7 +195,7 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
               );
             }
           } catch {
-            // Partial JSON chunk, continue
+            // Partial JSON chunk
           }
         }
       }
@@ -255,16 +253,16 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-full bg-background relative">
-      {/* Chat Header */}
-      <div className="flex items-center justify-between px-5 py-3 border-b border-surface-border bg-surface-card/40 backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-          <span className="text-xs font-semibold text-white tracking-wide">
-            DocuBrain RAG Conversation
+    <div className="flex flex-col h-full bg-[#080B11] relative select-text">
+      {/* Sleek Chat Top Bar */}
+      <div className="flex items-center justify-between px-5 py-3 border-b border-[#1E293B] bg-[#0C121D]/90 backdrop-blur-md">
+        <div className="flex items-center gap-2.5">
+          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs font-bold text-white tracking-wide">
+            Verified RAG Assistant
           </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-hover text-brand-300 border border-surface-border">
-            {demoMode ? "Zero-Latency Demo" : "Gemini 1.5 Flash"}
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#151F32] text-brand-300 border border-[#1E293B]">
+            {demoMode ? "Instant Neural Demo" : "Gemini 1.5 Flash"}
           </span>
         </div>
 
@@ -273,8 +271,8 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
             <>
               <button
                 onClick={handleExportChat}
-                className="flex items-center gap-1 px-2.5 py-1 text-xs text-slate-400 hover:text-white hover:bg-surface-hover rounded-lg transition-colors border border-transparent hover:border-surface-border"
-                title="Export chat as Markdown"
+                className="flex items-center gap-1 px-2.5 py-1 text-xs text-slate-400 hover:text-white hover:bg-[#151F32] rounded-lg transition-colors border border-transparent hover:border-[#1E293B]"
+                title="Export transcript as Markdown"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Export</span>
@@ -293,46 +291,49 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 overflow-y-auto p-5 space-y-6">
+      <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6">
         {messages.length === 0 ? (
-          /* Empty State */
-          <div className="h-full flex flex-col items-center justify-center text-center max-w-lg mx-auto py-12 px-4 space-y-5">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-accent-violet flex items-center justify-center shadow-lg shadow-brand-500/20 border border-brand-400/30">
-              <Bot className="w-6 h-6 text-white" />
+          /* High-Impact Empty State */
+          <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto py-8 px-4 space-y-6">
+            <div className="relative">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 via-accent-violet to-accent-cyan flex items-center justify-center shadow-xl shadow-brand-500/20 border border-brand-400/40">
+                <Bot className="w-7 h-7 text-white" />
+              </div>
+              <Sparkles className="w-4 h-4 text-accent-cyan absolute -top-1 -right-1 animate-pulse" />
             </div>
 
-            <div>
-              <h3 className="text-base font-semibold text-white">
-                Enterprise Document Knowledge Engine
+            <div className="space-y-2">
+              <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                Ask Questions with Verifiable Proof
               </h3>
-              <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                Query verified context from <strong className="text-slate-200">{activeDocument.title}</strong> with word-by-word streaming answers, exact citations, and Upstash Redis rate limiting.
+              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                Query <strong className="text-slate-200">{activeDocument.title}</strong>. Every streamed answer includes interactive citation pills that highlight the exact source clause.
               </p>
             </div>
 
-            {/* Suggested Prompts Carousel */}
+            {/* Suggested Prompts Cards */}
             <div className="w-full space-y-2 text-left pt-2">
-              <div className="flex items-center gap-1.5 text-[11px] font-mono text-brand-400">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>TRY A SUGGESTED ENTERPRISE QUESTION:</span>
+              <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+                <Sparkles className="w-3.5 h-3.5 text-accent-cyan" />
+                <span>SUGGESTED ENTERPRISE QUERIES:</span>
               </div>
-              <div className="grid grid-cols-1 gap-2">
+              <div className="space-y-2">
                 {suggestedQuestions.map((q, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSendMessage(q)}
                     disabled={rateLimit?.isRateLimited}
-                    className="flex items-center justify-between p-3 rounded-xl bg-surface-card border border-surface-border hover:border-brand-500/50 hover:bg-surface-hover/80 text-left transition-all text-xs text-slate-300 hover:text-white group"
+                    className="w-full flex items-center justify-between p-3.5 rounded-xl bg-[#0C121D] border border-[#1E293B] hover:border-brand-500/50 hover:bg-[#151F32] text-left transition-all text-xs text-slate-300 hover:text-white group"
                   >
-                    <span className="line-clamp-1">{q}</span>
-                    <Send className="w-3 h-3 text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0" />
+                    <span className="line-clamp-2 leading-relaxed">{q}</span>
+                    <Send className="w-3.5 h-3.5 text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity ml-3 shrink-0" />
                   </button>
                 ))}
               </div>
             </div>
           </div>
         ) : (
-          /* Message List */
+          /* Message Flow */
           messages.map((msg, index) => {
             const isUser = msg.role === "user";
 
@@ -341,35 +342,32 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
                 key={msg.id}
                 className={`flex gap-3.5 ${isUser ? "justify-end" : "justify-start"} animate-fade-in`}
               >
-                {/* Assistant Avatar */}
                 {!isUser && (
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-violet flex items-center justify-center shrink-0 border border-brand-400/30 shadow-sm mt-0.5">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-violet flex items-center justify-center shrink-0 border border-brand-400/30 shadow-md mt-0.5">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
                 )}
 
-                {/* Message Body */}
                 <div
-                  className={`flex flex-col max-w-[85%] sm:max-w-[78%] ${
+                  className={`flex flex-col max-w-[88%] sm:max-w-[80%] ${
                     isUser ? "items-end" : "items-start"
                   }`}
                 >
                   <div
-                    className={`px-4 py-3 rounded-2xl text-xs sm:text-sm leading-relaxed border ${
+                    className={`px-4 py-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed border ${
                       isUser
-                        ? "bg-brand-600 text-white border-brand-500 rounded-tr-none shadow-md shadow-brand-600/10"
-                        : "bg-surface-card border-surface-border text-slate-200 rounded-tl-none shadow-sm"
+                        ? "bg-gradient-to-r from-brand-700 to-brand-600 text-white border-brand-500 rounded-tr-none shadow-md shadow-brand-600/20"
+                        : "bg-[#0C121D] border-[#1E293B] text-slate-100 rounded-tl-none shadow-sm"
                     }`}
                   >
                     {isUser ? (
                       <p className="whitespace-pre-wrap">{msg.content}</p>
                     ) : (
-                      <div className="prose prose-invert prose-xs max-w-none space-y-2">
+                      <div className="prose prose-invert prose-xs max-w-none space-y-2 leading-relaxed">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>
                           {msg.content}
                         </ReactMarkdown>
 
-                        {/* Blinking Cursor when Streaming */}
                         {msg.isStreaming && (
                           <span className="inline-block w-1.5 h-4 ml-1 bg-brand-400 animate-pulse align-middle" />
                         )}
@@ -377,11 +375,11 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
                     )}
                   </div>
 
-                  {/* Assistant Citations Pills */}
+                  {/* Interactive Citations Bar */}
                   {!isUser && msg.citations && msg.citations.length > 0 && (
                     <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-                      <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider mr-1">
-                        Sources:
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mr-1">
+                        Verified Sources:
                       </span>
                       {msg.citations.map((citation) => (
                         <CitationPill
@@ -393,13 +391,13 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
                     </div>
                   )}
 
-                  {/* Message Meta / Copy button */}
-                  <div className="flex items-center gap-2 mt-1.5 px-1 text-[10px] text-slate-400 font-mono">
+                  {/* Message Meta */}
+                  <div className="flex items-center gap-2.5 mt-1.5 px-1 text-[10px] text-slate-500 font-mono">
                     <span>{msg.timestamp}</span>
                     {!isUser && !msg.isStreaming && (
                       <button
                         onClick={() => handleCopy(msg.content, index)}
-                        className="hover:text-slate-200 transition-colors flex items-center gap-1"
+                        className="hover:text-slate-300 transition-colors flex items-center gap-1"
                         title="Copy to clipboard"
                       >
                         {copiedIndex === index ? (
@@ -418,9 +416,8 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
                   </div>
                 </div>
 
-                {/* User Avatar */}
                 {isUser && (
-                  <div className="w-8 h-8 rounded-xl bg-surface-hover border border-surface-border flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-xl bg-[#151F32] border border-[#1E293B] flex items-center justify-center shrink-0 mt-0.5">
                     <User className="w-4 h-4 text-slate-300" />
                   </div>
                 )}
@@ -431,14 +428,14 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Rate Limit Exhaustion Banner */}
+      {/* Rate Limit Alert */}
       {rateLimit?.isRateLimited && (
         <div className="mx-5 mb-3 p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 flex items-center justify-between text-xs animate-slide-up">
           <div className="flex items-center gap-2.5">
             <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
             <div>
-              <span className="font-semibold text-white">Daily Quota Exhausted: </span>
-              <span>10/10 queries used. Upstash Redis sliding-window limit active.</span>
+              <span className="font-semibold text-white">Daily Quota Reached: </span>
+              <span>10/10 queries used. Upstash Redis sliding-window limit in effect.</span>
             </div>
           </div>
           <button
@@ -451,17 +448,17 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
         </div>
       )}
 
-      {/* Suggested Quick Questions above Input (when messages exist) */}
+      {/* Quick Suggestions Chips when chat is active */}
       {messages.length > 0 && !isStreaming && !rateLimit?.isRateLimited && (
-        <div className="px-5 py-1.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-          <span className="text-[10px] font-mono text-slate-400 shrink-0">
+        <div className="px-5 py-1.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar border-t border-[#1E293B]/60 bg-[#0A0E17]">
+          <span className="text-[10px] font-mono text-slate-500 shrink-0">
             Suggested:
           </span>
           {suggestedQuestions.slice(0, 2).map((q, idx) => (
             <button
               key={idx}
               onClick={() => handleSendMessage(q)}
-              className="text-[11px] text-slate-300 hover:text-white bg-surface-card hover:bg-surface-hover px-2.5 py-1 rounded-full border border-surface-border truncate max-w-xs transition-colors shrink-0"
+              className="text-[11px] text-slate-300 hover:text-white bg-[#0C121D] hover:bg-[#151F32] px-3 py-1 rounded-full border border-[#1E293B] truncate max-w-xs transition-colors shrink-0"
             >
               {q}
             </button>
@@ -469,49 +466,49 @@ export const ChatEngine: React.FC<ChatEngineProps> = ({
         </div>
       )}
 
-      {/* Chat Input Bar */}
-      <div className="p-4 border-t border-surface-border bg-surface-card/60 backdrop-blur-md">
+      {/* Modern Floating Chat Input Box */}
+      <div className="p-4 border-t border-[#1E293B] bg-[#0C121D]/90 backdrop-blur-md">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSendMessage();
           }}
-          className="flex items-center gap-2"
+          className="relative flex items-center"
         >
-          <div className="relative flex-1">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              disabled={isStreaming || rateLimit?.isRateLimited}
-              placeholder={
-                rateLimit?.isRateLimited
-                  ? "Daily query limit reached. Click 'Reset Demo' above to continue."
-                  : `Ask anything about ${activeDocument.title}...`
-              }
-              className="w-full pl-4 pr-10 py-3 rounded-xl bg-surface-hover/80 border border-surface-border text-xs sm:text-sm text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-500 disabled:opacity-50 transition-colors"
-            />
-          </div>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            disabled={isStreaming || rateLimit?.isRateLimited}
+            placeholder={
+              rateLimit?.isRateLimited
+                ? "Quota limit reached. Click 'Reset Demo' above to continue."
+                : `Ask any question about ${activeDocument.title}...`
+            }
+            className="w-full pl-4 pr-24 py-3.5 rounded-2xl bg-[#151F32]/80 border border-[#1E293B] text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-500 disabled:opacity-50 transition-colors shadow-inner"
+          />
 
-          {isStreaming ? (
-            <button
-              type="button"
-              onClick={handleStopStreaming}
-              className="flex items-center justify-center p-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white transition-colors shadow-sm"
-              title="Stop generating"
-            >
-              <Square className="w-4 h-4 fill-current" />
-            </button>
-          ) : (
-            <button
-              type="submit"
-              disabled={!inputValue.trim() || rateLimit?.isRateLimited}
-              className="flex items-center justify-center p-3 rounded-xl bg-brand-600 hover:bg-brand-500 disabled:opacity-40 disabled:pointer-events-none text-white transition-colors shadow-md shadow-brand-600/20"
-              title="Send prompt (Enter)"
-            >
-              <Send className="w-4 h-4" />
-            </button>
-          )}
+          <div className="absolute right-2 flex items-center gap-1.5">
+            {isStreaming ? (
+              <button
+                type="button"
+                onClick={handleStopStreaming}
+                className="flex items-center justify-center p-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white transition-colors shadow-sm"
+                title="Stop streaming"
+              >
+                <Square className="w-3.5 h-3.5 fill-current" />
+              </button>
+            ) : (
+              <button
+                type="submit"
+                disabled={!inputValue.trim() || rateLimit?.isRateLimited}
+                className="flex items-center justify-center p-2 rounded-xl bg-brand-600 hover:bg-brand-500 disabled:opacity-40 disabled:pointer-events-none text-white transition-all shadow-md shadow-brand-600/30"
+                title="Send query (Enter)"
+              >
+                <CornerDownLeft className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>
