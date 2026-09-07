@@ -114,7 +114,7 @@ export const UseCasesSection: React.FC = () => {
                 <div
                   className={`w-9 h-9 rounded-xl flex items-center justify-center ${
                     isSelected
-                      ? "bg-gradient-to-tr from-violetAccent-500 to-cyanAccent-400 text-ink-950 font-bold"
+                      ? "bg-gradient-to-tr from-violetAccent-500 to-cyanAccent-400 text-white font-bold shadow-sm"
                       : "bg-ink-800 text-ink-400"
                   }`}
                 >

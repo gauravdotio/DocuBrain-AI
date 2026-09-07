@@ -83,9 +83,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-5xl mx-auto">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.15] max-w-5xl mx-auto">
           Search 100-Page Contracts & Specs. <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-violetAccent-400 via-cyanAccent-300 to-violetAccent-300 bg-clip-text text-transparent">
+          <span className="inline-block py-1 bg-gradient-to-r from-violetAccent-400 via-cyanAccent-300 to-violetAccent-300 bg-clip-text text-transparent">
             Get Answers With Verifiable Proof.
           </span>
         </h1>

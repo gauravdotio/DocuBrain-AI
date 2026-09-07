@@ -91,7 +91,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onRequestDemo })
               }`}
             >
               {tier.badge && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-gradient-to-r from-violetAccent-500 to-cyanAccent-400 text-ink-950 tracking-wider shadow-glowDual">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-gradient-to-r from-violetAccent-600 to-cyanAccent-500 text-white tracking-wider shadow-glowDual">
                   {tier.badge}
                 </span>
               )}

@@ -40,17 +40,17 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) =
 
           {/* Nav Links */}
           <nav className="hidden lg:flex items-center space-x-1 font-medium text-xs text-ink-300">
-            <a href="#playground" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
-              Live Playground
-            </a>
-            <a href="#comparison" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
-              The Matrix
-            </a>
             <a href="#features" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
               Architecture
             </a>
+            <a href="#use-cases" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
+              Use Cases
+            </a>
             <a href="#calculator" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
               Token Guardrail
+            </a>
+            <a href="#security" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
+              Security
             </a>
             <a href="#pricing" className="px-3.5 py-2 rounded-lg hover:text-white hover:bg-ink-800 transition">
               Pricing
@@ -101,17 +101,17 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) =
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-b border-ink-700 bg-ink-900 px-4 py-4 space-y-2 animate-fade-in text-sm font-medium text-ink-200">
-          <a href="#playground" onClick={() => setMobileMenuOpen(false)} className="block py-2">
-            Live Playground
-          </a>
-          <a href="#comparison" onClick={() => setMobileMenuOpen(false)} className="block py-2">
-            The Matrix
-          </a>
           <a href="#features" onClick={() => setMobileMenuOpen(false)} className="block py-2">
             Architecture
           </a>
+          <a href="#use-cases" onClick={() => setMobileMenuOpen(false)} className="block py-2">
+            Use Cases
+          </a>
           <a href="#calculator" onClick={() => setMobileMenuOpen(false)} className="block py-2">
             Token Guardrail
+          </a>
+          <a href="#security" onClick={() => setMobileMenuOpen(false)} className="block py-2">
+            Security
           </a>
           <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block py-2">
             Pricing

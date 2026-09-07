@@ -125,11 +125,11 @@ export const ArchitectureSection: React.FC = () => {
                 onClick={() => setActiveTab(idx)}
                 className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold border transition-all duration-150 ${
                   isSelected
-                    ? "bg-gradient-to-r from-violetAccent-500 to-cyanAccent-500 border-cyanAccent-400 text-ink-950 font-bold shadow-glowDual"
+                    ? "bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 border-cyanAccent-400 text-white font-bold shadow-glowDual"
                     : "bg-ink-900 border-ink-700 text-ink-300 hover:border-ink-600 hover:text-white"
                 }`}
               >
-                <TabIcon className={`w-3.5 h-3.5 ${isSelected ? "text-ink-950" : "text-cyanAccent-400"}`} />
+                <TabIcon className={`w-3.5 h-3.5 ${isSelected ? "text-white" : "text-cyanAccent-400"}`} />
                 <span>{feat.tabLabel}</span>
               </button>
             );
