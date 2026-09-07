@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   FileCheck2,
   ArrowRight,
-  Database,
   Cpu,
   CheckCircle2,
 } from "lucide-react";
@@ -28,7 +27,7 @@ export const ArchitectureSection: React.FC = () => {
       bulletPoints: [
         "Preserves semantic meaning across section breaks",
         "Deterministic chunk indexing for sub-15ms lookups",
-        "Direct support for PDFs, Markdown, TXT, and enterprise contracts",
+        "Direct support for PDFs, Markdown, TXT, and contracts",
       ],
       mockupTitle: "Semantic Sliding Window: 350 Tokens • 50 Overlap",
       mockupContent: "Parsing Section 2.1 into vector chunks... 3 pages processed, 14 verified chunks indexed into memory.",
@@ -54,7 +53,7 @@ export const ArchitectureSection: React.FC = () => {
       tabLabel: "Clause Citations",
       icon: BookOpen,
       description:
-        "Every factual claim is backed by a clickable citation pill. Clicking a pill auto-scrolls the reader to the exact paragraph and lights it up with a glowing highlight.",
+        "Every factual claim is backed by a clickable citation pill. Clicking a pill auto-scrolls the reader to the exact paragraph and lights it up with an active highlight ring.",
       bulletPoints: [
         "Direct passage jump with synchronized scroll animations",
         "Hover tooltip showing match confidence percentage",
@@ -99,23 +98,23 @@ export const ArchitectureSection: React.FC = () => {
   const Icon = current.icon;
 
   return (
-    <section id="features" className="py-20 sm:py-24 bg-ink-950 border-b border-ink-800">
+    <section id="features" className="py-20 sm:py-24 bg-slate-50/70 border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-cyanAccent-400 text-xs font-mono">
-            <Cpu className="w-3.5 h-3.5 text-cyanAccent-400" />
-            <span>NEURAL ARCHITECTURE PIPELINE</span>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-600 text-xs font-semibold shadow-sm">
+            <Cpu className="w-3.5 h-3.5 text-brand-600" />
+            <span>ENTERPRISE ARCHITECTURE PIPELINE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Deterministic Ingestion to Cryptographic Audit
           </h2>
-          <p className="text-base text-ink-300 leading-relaxed">
-            Five core building blocks, one connected enterprise system. Select a tab to inspect the pipeline.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Five core building blocks, one connected enterprise knowledge brain. Select a tab to inspect each layer.
           </p>
         </div>
 
         {/* Tab Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12" role="tablist">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10" role="tablist">
           {features.map((feat, idx) => {
             const TabIcon = feat.icon;
             const isSelected = activeTab === idx;
@@ -123,13 +122,13 @@ export const ArchitectureSection: React.FC = () => {
               <button
                 key={feat.id}
                 onClick={() => setActiveTab(idx)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold border transition-all duration-150 ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold border transition-all duration-150 ${
                   isSelected
-                    ? "bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 border-cyanAccent-400 text-white font-bold shadow-glowDual"
-                    : "bg-ink-900 border-ink-700 text-ink-300 hover:border-ink-600 hover:text-white"
+                    ? "bg-brand-600 border-brand-600 text-white shadow-button"
+                    : "bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900 shadow-sm"
                 }`}
               >
-                <TabIcon className={`w-3.5 h-3.5 ${isSelected ? "text-white" : "text-cyanAccent-400"}`} />
+                <TabIcon className={`w-3.5 h-3.5 ${isSelected ? "text-white" : "text-brand-600"}`} />
                 <span>{feat.tabLabel}</span>
               </button>
             );
@@ -137,34 +136,34 @@ export const ArchitectureSection: React.FC = () => {
         </div>
 
         {/* Feature Detail Showcase Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-ink-900/90 p-8 sm:p-12 rounded-3xl border border-ink-700/80 shadow-studio">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-card">
           {/* Left: Feature description */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 text-white flex items-center justify-center shadow-glowViolet border border-white/20">
+            <div className="w-12 h-12 rounded-2xl bg-brand-50 border border-brand-200/80 text-brand-600 flex items-center justify-center shadow-sm">
               <Icon className="w-6 h-6" />
             </div>
 
-            <h3 className="text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
               {current.title}
             </h3>
 
-            <p className="text-sm sm:text-base text-ink-300 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               {current.description}
             </p>
 
             <div className="space-y-2.5 pt-2">
               {current.bulletPoints.map((bp, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-200">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                   <span>{bp}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-4">
+            <div className="pt-2">
               <Link
                 href="/dashboard"
-                className="inline-flex items-center gap-2 text-sm font-bold text-cyanAccent-400 hover:text-cyanAccent-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-700 transition-colors"
               >
                 <span>Experience this live in the studio console</span>
                 <ArrowRight className="w-4 h-4" />
@@ -172,25 +171,25 @@ export const ArchitectureSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Interactive Mockup Box */}
+          {/* Right: Interactive Telemetry Chrome */}
           <div className="lg:col-span-6">
-            <div className="w-full bg-ink-950 rounded-2xl shadow-2xl border border-ink-700 overflow-hidden font-mono text-xs">
-              <div className="bg-ink-900 px-4 py-3 border-b border-ink-700/80 text-ink-300 flex items-center justify-between">
-                <span className="flex items-center gap-2 text-[11px]">
-                  <Sparkles className="w-3.5 h-3.5 text-cyanAccent-400" />
+            <div className="w-full bg-[#0F172A] rounded-2xl shadow-mockup border border-slate-800 overflow-hidden font-mono text-xs">
+              <div className="bg-[#1E293B] px-4 py-3 border-b border-slate-800 text-slate-300 flex items-center justify-between">
+                <span className="flex items-center gap-2 text-[11px] text-slate-200 font-semibold">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-400" />
                   {current.mockupTitle}
                 </span>
-                <span className="text-emerald-400 text-[10px]">● LIVE_VERIFIED</span>
+                <span className="text-emerald-400 text-[10px] font-bold">● LIVE_VERIFIED</span>
               </div>
-              <div className="p-6 space-y-4 bg-ink-950 text-ink-200 font-mono text-xs">
-                <div className="text-ink-400 text-[11px] leading-relaxed">
+              <div className="p-6 space-y-4 bg-[#0F172A] text-slate-300 font-mono text-xs">
+                <div className="text-slate-400 text-[11px] leading-relaxed">
                   {current.mockupContent}
                 </div>
-                <div className="p-4 rounded-xl bg-ink-900/90 border border-ink-700/80 space-y-2">
-                  <div className="text-[10px] uppercase text-ink-500 font-bold">Telemetry Stream</div>
+                <div className="p-4 rounded-xl bg-[#1E293B]/70 border border-slate-700/80 space-y-2">
+                  <div className="text-[10px] uppercase text-slate-400 font-bold">Telemetry Stream</div>
                   <div className="text-emerald-400">✓ Ingestion Status: 100% Vectorized</div>
-                  <div className="text-cyanAccent-400">✓ Token Budget: Upstash Redis sliding window</div>
-                  <div className="text-violetAccent-400">✓ Grounding Accuracy: 98.4% Confidence Match</div>
+                  <div className="text-brand-400">✓ Token Budget: Upstash Redis sliding window</div>
+                  <div className="text-cyan-400">✓ Grounding Accuracy: 98.4% Confidence Match</div>
                 </div>
               </div>
             </div>
@@ -200,3 +199,4 @@ export const ArchitectureSection: React.FC = () => {
     </section>
   );
 };
+

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #080B14;
-  --foreground: #F8FAFC;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
 }
 
 body {
@@ -14,37 +14,38 @@ body {
   overflow-x: hidden;
 }
 
-/* Neural Matrix Dot Grid Background */
-.neural-grid {
-  background-size: 32px 32px;
+/* Crisp Modern SaaS Grid Lines (matching IntakeIQ reference) */
+.saas-grid {
+  background-size: 36px 36px;
   background-image: 
-    radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.12) 1px, transparent 0);
+    linear-gradient(to right, rgba(15, 23, 42, 0.038) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.038) 1px, transparent 1px);
 }
 
-.neural-lines {
-  background-size: 48px 48px;
+/* Subtle dot grid */
+.dot-grid {
+  background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.08) 1px, transparent 0);
 }
 
-/* Custom Studio Scrollbar */
+/* Custom Light Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080B14;
+  background: #F8FAFC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A2238;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #263252;
+  background: #94A3B8;
 }
 
 .no-scrollbar::-webkit-scrollbar {

@@ -99,11 +99,11 @@ export default function DashboardWorkspace() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-ink-950">
+    <div className="flex flex-col h-full bg-slate-50">
       {/* Main Dual-Pane Workspace */}
       <main className="flex-1 flex flex-col lg:flex-row min-h-0 overflow-hidden">
         {/* Left Pane: Knowledge Document Reader */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex-shrink-0 border-b lg:border-b-0 border-ink-800">
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex-shrink-0 border-b lg:border-b-0 border-slate-200">
           <DocumentViewer
             documents={documents}
             activeDocument={activeDocument}
@@ -117,7 +117,7 @@ export default function DashboardWorkspace() {
         </div>
 
         {/* Right Pane: Conversational Knowledge Engine */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col min-h-0 bg-ink-900 border-l border-ink-800">
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col min-h-0 bg-white border-l border-slate-200">
           <div className="flex-1 min-h-0 overflow-hidden">
             <ChatEngine
               activeDocument={activeDocument}

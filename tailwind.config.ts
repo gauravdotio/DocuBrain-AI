@@ -10,6 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          50: "#EFF6FF",
+          100: "#DBEAFE",
+          200: "#BFDBFE",
+          300: "#93C5FD",
+          400: "#60A5FA",
+          500: "#3B82F6",
+          600: "#0066FF",
+          700: "#0052CC",
+          800: "#1E40AF",
+          900: "#1E3A8A",
+          950: "#0B1E48",
+        },
         ink: {
           950: "#04060B",
           900: "#080B14",
@@ -48,6 +61,11 @@ const config: Config = {
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       boxShadow: {
+        card: "0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.03)",
+        cardHover: "0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04)",
+        mockup: "0 25px 50px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(15, 23, 42, 0.06)",
+        button: "0 1px 2px 0 rgba(0, 102, 255, 0.2)",
+        buttonHover: "0 4px 14px 0 rgba(0, 102, 255, 0.35)",
         studio: "0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08)",
         glowViolet: "0 0 30px -4px rgba(139, 92, 246, 0.45)",
         glowCyan: "0 0 30px -4px rgba(6, 182, 212, 0.4)",
