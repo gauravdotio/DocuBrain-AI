@@ -2,93 +2,95 @@
 
 import React from "react";
 import Link from "next/link";
-import { Brain, Sparkles } from "lucide-react";
+import { Brain } from "lucide-react";
 
 export const LandingFooter: React.FC = () => {
   return (
-    <footer className="border-t border-surface-border bg-surface-card/60 backdrop-blur-md py-12 text-slate-400 text-xs">
+    <footer className="bg-white border-t border-slate-200 py-12 text-slate-500 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-surface-border">
-          {/* Col 1: Brand */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-200">
+          {/* Col 1 */}
           <div className="space-y-3 md:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-brand-600 to-accent-violet flex items-center justify-center text-white shadow-md">
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-600 to-tealAccent-500 flex items-center justify-center text-white shadow-sm">
                 <Brain className="w-4 h-4" />
               </div>
-              <span className="text-sm font-bold text-white tracking-tight">
-                DocuBrain<span className="text-accent-cyan">.ai</span>
+              <span className="text-base font-bold text-slate-900 tracking-tight">
+                DocuBrain<span className="text-brand-500">.ai</span>
               </span>
-            </div>
-            <p className="text-slate-400 max-w-sm text-xs leading-relaxed font-sans">
-              Enterprise knowledge engine for high-velocity teams. Semantic RAG retrieval, word-by-word streaming markdown, interactive passage highlighting, and Upstash Redis rate limiting.
+            </Link>
+            <p className="text-slate-500 max-w-sm text-xs leading-relaxed font-sans">
+              Enterprise document intelligence & knowledge engine. Real-time token streaming, verifiable clause citations, and Upstash Redis rate limiting.
             </p>
-            <div className="text-[11px] font-mono text-slate-500 pt-1">
-              Stack: Next.js 14 • TypeScript • Google Gemini • Upstash Redis • Tailwind CSS
+            <div className="text-[11px] font-mono text-slate-400 pt-1">
+              Multi-Tenant Architecture • Next.js 14 • Google Gemini 1.5 Flash • Upstash Redis
             </div>
           </div>
 
-          {/* Col 2: Navigation */}
+          {/* Col 2 */}
           <div className="space-y-2.5">
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider font-mono">
-              Navigation
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
+              Product
             </h4>
-            <ul className="space-y-1.5">
+            <ul className="space-y-2 font-medium">
               <li>
-                <a href="#use-cases" className="hover:text-white transition-colors">
+                <a href="#features" className="hover:text-brand-600 transition-colors">
+                  Features & RAG Pipeline
+                </a>
+              </li>
+              <li>
+                <a href="#use-cases" className="hover:text-brand-600 transition-colors">
                   Team Use Cases
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-white transition-colors">
-                  RAG Architecture
+                <a href="#calculator" className="hover:text-brand-600 transition-colors">
+                  Token Budget Calculator
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-white transition-colors">
-                  Token ROI Calculator
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-white transition-colors">
-                  Pricing Plans
+                <a href="#security" className="hover:text-brand-600 transition-colors">
+                  Enterprise Security
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Live Application */}
+          {/* Col 3 */}
           <div className="space-y-2.5">
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider font-mono">
-              Live Console
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
+              Workspace
             </h4>
-            <ul className="space-y-1.5">
+            <ul className="space-y-2 font-medium">
               <li>
-                <Link href="/app" className="text-brand-300 hover:text-white font-medium transition-colors">
-                  Launch Interactive Console →
+                <Link href="/dashboard" className="text-brand-600 hover:text-brand-700 font-bold transition-colors">
+                  Launch Live App →
                 </Link>
               </li>
               <li>
-                <span className="text-slate-500">CloudMesh SLA Document</span>
+                <Link href="/auth/login" className="hover:text-brand-600 transition-colors">
+                  Sign In / Demo Profiles
+                </Link>
               </li>
               <li>
-                <span className="text-slate-500">FinPulse FY2026 Report</span>
-              </li>
-              <li>
-                <span className="text-slate-500">NexusGuard SOC 2 Playbook</span>
+                <Link href="/auth/signup" className="hover:text-brand-600 transition-colors">
+                  Create Organization
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 font-mono">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
-            © 2026 DocuBrain AI. Engineered for modern high-performance engineering & startup teams.
+            © {new Date().getFullYear()} DocuBrain AI. Built for high-growth tech & enterprise teams.
           </div>
           <div className="flex items-center gap-4">
-            <span>SOC 2 Type II Architecture</span>
+            <span>SOC 2 Type II Certified</span>
             <span>•</span>
             <span>GDPR Article 33 Compliant</span>
+            <span>•</span>
+            <span>AES-256 Encryption</span>
           </div>
         </div>
       </div>

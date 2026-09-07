@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Sparkles,
   BookOpen,
+  CheckCircle2,
 } from "lucide-react";
 
 interface UseCase {
@@ -80,23 +81,22 @@ export const UseCasesSection: React.FC = () => {
   const currentCase = useCases.find((c) => c.id === activeId) || useCases[0];
 
   return (
-    <section id="use-cases" className="py-24 border-t border-surface-border bg-surface/30">
+    <section id="use-cases" className="py-20 sm:py-24 bg-slate-50 border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>SOLVING REAL WORKPLACE FRICTION</span>
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200/80 text-brand-700 text-xs font-semibold">
+            <span>Built for Modern Workflows</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Designed for Modern Tech Teams & Startups
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Designed for Fast-Moving Tech Teams
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-sans">
-            Replace repeated Slack interruptions, outdated Notion pages, and lost Google Docs with an intelligent knowledge base that provides cited answers with zero hallucinations.
+          <p className="text-base text-slate-600 leading-relaxed font-sans">
+            Replace repeated Slack interruptions and lost Notion pages with an intelligent knowledge base that provides cited answers with zero hallucinations.
           </p>
         </div>
 
         {/* Tab Buttons */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
           {useCases.map((item) => {
             const Icon = item.icon;
             const isSelected = item.id === activeId;
@@ -106,22 +106,22 @@ export const UseCasesSection: React.FC = () => {
                 onClick={() => setActiveId(item.id)}
                 className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between space-y-3 ${
                   isSelected
-                    ? "bg-surface-card border-brand-500 shadow-lg shadow-brand-500/10 ring-1 ring-brand-500"
-                    : "bg-surface-card/40 border-surface-border hover:bg-surface-hover hover:border-slate-700"
+                    ? "bg-white border-brand-500 shadow-md ring-1 ring-brand-500"
+                    : "bg-white/70 border-slate-200 hover:bg-white hover:border-slate-300"
                 }`}
               >
                 <div
                   className={`w-9 h-9 rounded-xl flex items-center justify-center ${
                     isSelected
-                      ? "bg-brand-600 text-white"
-                      : "bg-surface-hover text-slate-400"
+                      ? "bg-brand-500 text-white"
+                      : "bg-slate-100 text-slate-600"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono text-slate-400">{item.badge}</div>
-                  <div className="text-xs font-bold text-white mt-0.5 line-clamp-1">
+                  <div className="text-[11px] font-mono text-slate-400 font-semibold">{item.badge}</div>
+                  <div className="text-xs font-bold text-slate-900 mt-0.5 line-clamp-1">
                     {item.title.split(" ")[0]} {item.title.split(" ")[1]}
                   </div>
                 </div>
@@ -131,54 +131,54 @@ export const UseCasesSection: React.FC = () => {
         </div>
 
         {/* Selected Use Case Card */}
-        <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-surface-card border border-surface-border shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-5">
-            <span className="px-2.5 py-1 rounded-full text-xs font-mono bg-brand-500/10 text-brand-300 border border-brand-500/30">
+            <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-50 text-brand-700 border border-brand-200">
               {currentCase.badge}
             </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
               {currentCase.title}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+            <p className="text-sm text-slate-600 leading-relaxed font-sans">
               {currentCase.description}
             </p>
 
             <div className="pt-2">
               <Link
-                href="/app"
-                className="inline-flex items-center gap-2 text-xs font-bold text-accent-cyan hover:text-white transition-colors"
+                href="/dashboard"
+                className="inline-flex items-center gap-2 text-xs font-bold text-brand-600 hover:text-brand-700 transition-colors"
               >
-                <span>Try this live in the console</span>
+                <span>Query this document in the live workspace</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
-          {/* Interactive Simulated Prompt & Answer */}
-          <div className="lg:col-span-6 bg-background rounded-2xl border border-surface-border p-5 space-y-4">
-            <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 border-b border-surface-border pb-2.5">
-              <span>LIVE RAG VERIFICATION</span>
-              <span className="text-emerald-400 font-semibold">100% CITED</span>
+          {/* Interactive Simulated Prompt & Answer Box */}
+          <div className="lg:col-span-6 bg-slate-50 rounded-2xl border border-slate-200 p-5 space-y-3.5">
+            <div className="flex items-center justify-between text-[11px] font-mono border-b border-slate-200 pb-2">
+              <span className="text-slate-500 font-semibold">VERIFIED CITATION DEMO</span>
+              <span className="text-emerald-700 font-bold">100% CITED</span>
             </div>
 
             {/* Prompt */}
-            <div className="bg-surface-card p-3 rounded-xl border border-surface-border text-xs text-slate-200">
-              <span className="text-[10px] font-mono text-brand-400 block mb-1">TEAM QUERY:</span>
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200 text-xs text-slate-800 shadow-xs">
+              <span className="text-[10px] font-mono text-brand-600 font-bold block mb-1">TEAM QUERY:</span>
               &ldquo;{currentCase.sampleQuestion}&rdquo;
             </div>
 
             {/* Answer */}
-            <div className="bg-brand-500/10 border border-brand-500/20 p-4 rounded-xl space-y-3">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-accent-cyan" />
-                <span className="text-xs font-semibold text-white">Streamed Response</span>
+            <div className="bg-brand-50/70 border border-brand-200 p-4 rounded-xl space-y-2.5">
+              <div className="flex items-center gap-2 text-brand-900 font-semibold text-xs">
+                <Sparkles className="w-3.5 h-3.5 text-brand-600" />
+                <span>Streamed Answer</span>
               </div>
-              <p className="text-xs text-slate-200 leading-relaxed font-sans">
+              <p className="text-xs text-slate-800 leading-relaxed font-sans">
                 {currentCase.sampleAnswer}
               </p>
               <div className="flex items-center gap-2 pt-1">
-                <BookOpen className="w-3 h-3 text-brand-400" />
-                <span className="text-[11px] font-mono text-brand-300">
+                <BookOpen className="w-3.5 h-3.5 text-brand-600" />
+                <span className="text-[11px] font-mono font-semibold text-brand-700">
                   {currentCase.citation}
                 </span>
               </div>

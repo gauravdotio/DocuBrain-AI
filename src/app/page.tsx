@@ -1,35 +1,62 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import ScrollProgressBar from "@/components/shared/ScrollProgressBar";
 import { LandingNavbar } from "@/components/landing/LandingNavbar";
 import { HeroSection } from "@/components/landing/HeroSection";
-import { InteractiveMockup } from "@/components/landing/InteractiveMockup";
+import { TrustBar } from "@/components/landing/TrustBar";
+import { ArchitectureSection } from "@/components/landing/ArchitectureSection";
 import { UseCasesSection } from "@/components/landing/UseCasesSection";
 import { RoiCalculator } from "@/components/landing/RoiCalculator";
-import { ArchitectureSection } from "@/components/landing/ArchitectureSection";
+import { SecuritySection } from "@/components/landing/SecuritySection";
 import { PricingSection } from "@/components/landing/PricingSection";
 import { CtaSection } from "@/components/landing/CtaSection";
 import { LandingFooter } from "@/components/landing/LandingFooter";
+import DemoModal from "@/components/ui/DemoModal";
 
 export default function LandingPage() {
-  return (
-    <div className="min-h-screen bg-background text-slate-100 flex flex-col selection:bg-brand-500/30 selection:text-brand-200">
-      {/* Sticky Modern Dark Header */}
-      <LandingNavbar />
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
-      {/* Main Content Sections */}
+  return (
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col selection:bg-brand-500 selection:text-white">
+      {/* Scroll Progress Bar */}
+      <ScrollProgressBar />
+
+      {/* Sticky Enterprise Header */}
+      <LandingNavbar onRequestDemo={() => setIsDemoOpen(true)} />
+
+      {/* Main Marketing Sections */}
       <main className="flex-1">
-        <HeroSection />
-        <InteractiveMockup />
-        <UseCasesSection />
+        {/* 1. Hero Section with 3D Tilted Mockup */}
+        <HeroSection onRequestDemo={() => setIsDemoOpen(true)} />
+
+        {/* 2. Trust Bar */}
+        <TrustBar />
+
+        {/* 3. Tabbed Features Showcase */}
         <ArchitectureSection />
+
+        {/* 4. Industry Use Cases */}
+        <UseCasesSection />
+
+        {/* 5. Token Budget & ROI Calculator */}
         <RoiCalculator />
-        <PricingSection />
-        <CtaSection />
+
+        {/* 6. Enterprise Security Matrix */}
+        <SecuritySection />
+
+        {/* 7. Transparent Pricing */}
+        <PricingSection onRequestDemo={() => setIsDemoOpen(true)} />
+
+        {/* 8. Final CTA Banner */}
+        <CtaSection onRequestDemo={() => setIsDemoOpen(true)} />
       </main>
 
       {/* Footer */}
       <LandingFooter />
+
+      {/* Demo Modal */}
+      <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </div>
   );
 }

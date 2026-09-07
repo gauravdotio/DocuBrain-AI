@@ -2,115 +2,115 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Brain, Sparkles, ArrowRight, Menu, X, ShieldCheck } from "lucide-react";
+import { Brain, ArrowRight, Menu, X, ChevronDown, Sparkles } from "lucide-react";
 
-export const LandingNavbar: React.FC = () => {
+interface LandingNavbarProps {
+  onRequestDemo: () => void;
+}
+
+export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-surface-border/80 bg-background/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 via-accent-violet to-accent-cyan flex items-center justify-center shadow-lg shadow-brand-500/25 border border-brand-400/40 group-hover:scale-105 transition-transform">
-              <Brain className="w-5 h-5 text-white" />
+    <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all duration-200 py-3.5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          {/* Brand Logo */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-tealAccent-500 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+              <Brain className="w-5 h-5" />
             </div>
-            <Sparkles className="w-3 h-3 text-accent-cyan absolute -top-1 -right-1 animate-pulse" />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="text-base font-bold text-white tracking-tight">
-                DocuBrain<span className="text-accent-cyan">.ai</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold tracking-tight text-slate-900 leading-none">
+                DocuBrain<span className="text-brand-500">.ai</span>
               </span>
-              <span className="px-2 py-0.5 text-[10px] font-mono font-medium rounded-full bg-brand-500/10 text-brand-300 border border-brand-500/30">
-                v2.0
+              <span className="text-[10px] text-slate-400 font-medium tracking-wide">
+                Enterprise Knowledge & RAG
               </span>
             </div>
-            <span className="text-[10px] text-slate-400 font-mono tracking-wide -mt-0.5">
-              Enterprise Knowledge Engine
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-medium text-slate-300">
-          <a href="#use-cases" className="hover:text-white transition-colors">
-            Use Cases
-          </a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">
-            RAG Pipeline
-          </a>
-          <a href="#calculator" className="hover:text-white transition-colors">
-            Token ROI Calculator
-          </a>
-          <a href="#architecture" className="hover:text-white transition-colors">
-            Architecture
-          </a>
-          <a href="#pricing" className="hover:text-white transition-colors">
-            Pricing
-          </a>
-        </nav>
-
-        {/* Right CTA */}
-        <div className="hidden sm:flex items-center gap-3">
-          <Link
-            href="/app"
-            className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-brand-600 to-accent-violet hover:from-brand-500 hover:to-accent-violet/90 border border-brand-400/40 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition-all hover:scale-[1.02]"
-          >
-            <span>Launch Live Console</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-accent-cyan" />
           </Link>
-        </div>
 
-        {/* Mobile menu toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-surface-hover"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+          {/* Nav Links */}
+          <nav className="hidden lg:flex items-center space-x-1 font-medium text-sm text-slate-600">
+            <a href="#features" className="px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition">
+              Features
+            </a>
+            <a href="#use-cases" className="px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition">
+              Use Cases
+            </a>
+            <a href="#calculator" className="px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition">
+              Token Budgeting
+            </a>
+            <a href="#pricing" className="px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition">
+              Pricing
+            </a>
+            <a href="#security" className="px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition">
+              Security
+            </a>
+          </nav>
+
+          {/* Right Action Buttons */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <button
+              onClick={onRequestDemo}
+              className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-50 rounded-lg transition"
+            >
+              Request Demo
+            </button>
+            <Link
+              href="/auth/login"
+              className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100 rounded-lg transition"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/dashboard"
+              className="px-5 py-2.5 text-sm font-semibold text-white bg-brand-500 hover:bg-brand-600 active:bg-brand-700 rounded-xl shadow-sm hover:shadow transition-all duration-150 transform hover:-translate-y-0.5 flex items-center gap-1.5"
+            >
+              <span>Launch App</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Mobile menu toggle */}
+          <div className="lg:hidden flex items-center gap-2">
+            <Link
+              href="/dashboard"
+              className="px-3 py-1.5 text-xs font-semibold text-white bg-brand-500 rounded-lg"
+            >
+              Launch
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-surface-border bg-surface-card px-4 py-4 space-y-3 animate-fade-in text-sm">
-          <a
-            href="#use-cases"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-slate-300 hover:text-white py-1"
-          >
+        <div className="lg:hidden border-b border-slate-200 bg-white px-4 py-4 space-y-2 animate-fade-in text-sm font-medium text-slate-700">
+          <a href="#features" onClick={() => setMobileMenuOpen(false)} className="block py-2">
+            Features
+          </a>
+          <a href="#use-cases" onClick={() => setMobileMenuOpen(false)} className="block py-2">
             Use Cases
           </a>
-          <a
-            href="#how-it-works"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-slate-300 hover:text-white py-1"
-          >
-            RAG Pipeline
+          <a href="#calculator" onClick={() => setMobileMenuOpen(false)} className="block py-2">
+            Token Budgeting
           </a>
-          <a
-            href="#calculator"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-slate-300 hover:text-white py-1"
-          >
-            Token ROI Calculator
-          </a>
-          <a
-            href="#pricing"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-slate-300 hover:text-white py-1"
-          >
+          <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block py-2">
             Pricing
           </a>
-          <div className="pt-2">
-            <Link
-              href="/app"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500"
-            >
-              <span>Launch Live Console</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+            <Link href="/auth/login" className="py-2 text-center text-slate-700 font-semibold bg-slate-50 rounded-lg">
+              Sign In
+            </Link>
+            <Link href="/dashboard" className="py-2.5 text-center text-white font-semibold bg-brand-500 rounded-lg">
+              Launch App
             </Link>
           </div>
         </div>
