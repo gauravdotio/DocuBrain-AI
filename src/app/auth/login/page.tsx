@@ -44,11 +44,11 @@ export default function LoginPage() {
     <div className="min-h-screen bg-ink-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 neural-grid">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center mb-6">
         <Link href="/" className="inline-flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-iris-600 via-iris-500 to-amberAccent-500 flex items-center justify-center text-white shadow-glowIris border border-white/20 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 flex items-center justify-center text-white shadow-glowViolet border border-white/20 group-hover:scale-105 transition-transform">
             <Brain className="w-6 h-6" />
           </div>
           <span className="text-2xl font-bold tracking-tight text-white">
-            DocuBrain<span className="text-amberAccent-400 font-mono text-sm ml-1 px-1.5 py-0.5 rounded bg-amberAccent-500/15 border border-amberAccent-500/30">AI</span>
+            DocuBrain<span className="text-cyanAccent-400 font-mono text-sm ml-1 px-1.5 py-0.5 rounded bg-cyanAccent-500/15 border border-cyanAccent-500/30">AI</span>
           </span>
         </Link>
         <p className="mt-2 text-xs text-ink-400 font-medium">
@@ -78,7 +78,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 outline-none transition-all"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 outline-none transition-all"
                 />
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 outline-none transition-all"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 outline-none transition-all"
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 active:scale-[0.98] text-ink-950 text-xs sm:text-sm font-bold rounded-xl shadow-glowAmber transition-all flex items-center justify-center gap-2 mt-2"
+              className="w-full py-3 bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 active:scale-[0.98] text-white text-xs sm:text-sm font-bold rounded-xl shadow-glowDual transition-all flex items-center justify-center gap-2 mt-2"
             >
               <span>{isSubmitting ? "Authenticating..." : "Sign In to Studio Workspace"}</span>
               <ArrowRight className="w-4 h-4" />
@@ -113,8 +113,8 @@ export default function LoginPage() {
           {/* 1-Click Instant Demo Profiles */}
           <div className="mt-8 pt-6 border-t border-ink-800 space-y-3">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-amberAccent-400 uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amberAccent-400" />
+              <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-cyanAccent-400 uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-cyanAccent-400" />
                 <span>Instant 1-Click Demo Profiles</span>
               </div>
               <span className="text-[10px] font-mono text-emerald-400">Zero Password Needed</span>
@@ -126,9 +126,9 @@ export default function LoginPage() {
                 type="button"
                 onClick={() => handleQuickLogin("Enterprise Architect", "Sarah Jenkins", "sarah@cloudmesh.io")}
                 disabled={isSubmitting}
-                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-amberAccent-500/50 rounded-xl border border-ink-700 text-left transition-all group"
+                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-cyanAccent-500/50 rounded-xl border border-ink-700 text-left transition-all group"
               >
-                <div className="flex items-center gap-1.5 text-amberAccent-400 font-bold text-xs">
+                <div className="flex items-center gap-1.5 text-cyanAccent-400 font-bold text-xs">
                   <Cpu className="w-3.5 h-3.5 shrink-0" />
                   <span>Sarah Jenkins</span>
                 </div>
@@ -140,9 +140,9 @@ export default function LoginPage() {
                 type="button"
                 onClick={() => handleQuickLogin("Compliance Lead", "Marcus Sterling", "marcus@nexusguard.io")}
                 disabled={isSubmitting}
-                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-iris-500/50 rounded-xl border border-ink-700 text-left transition-all group"
+                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-violetAccent-500/50 rounded-xl border border-ink-700 text-left transition-all group"
               >
-                <div className="flex items-center gap-1.5 text-iris-400 font-bold text-xs">
+                <div className="flex items-center gap-1.5 text-violetAccent-400 font-bold text-xs">
                   <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
                   <span>Marcus Sterling</span>
                 </div>
@@ -154,9 +154,9 @@ export default function LoginPage() {
                 type="button"
                 onClick={() => handleQuickLogin("Finance Director", "Elena Rostova", "elena@finpulse.io")}
                 disabled={isSubmitting}
-                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-mint-500/50 rounded-xl border border-ink-700 text-left transition-all group"
+                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-emerald-500/50 rounded-xl border border-ink-700 text-left transition-all group"
               >
-                <div className="flex items-center gap-1.5 text-mint-400 font-bold text-xs">
+                <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs">
                   <FileCheck className="w-3.5 h-3.5 shrink-0" />
                   <span>Elena Rostova</span>
                 </div>
@@ -168,9 +168,9 @@ export default function LoginPage() {
                 type="button"
                 onClick={() => handleQuickLogin("Recruiter / Evaluator", "Guest Evaluator", "evaluator@guest.io")}
                 disabled={isSubmitting}
-                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-amberAccent-500/50 rounded-xl border border-ink-700 text-left transition-all group"
+                className="p-3 bg-ink-850 hover:bg-ink-800 hover:border-cyanAccent-500/50 rounded-xl border border-ink-700 text-left transition-all group"
               >
-                <div className="flex items-center gap-1.5 text-amberAccent-300 font-bold text-xs">
+                <div className="flex items-center gap-1.5 text-cyanAccent-300 font-bold text-xs">
                   <UserCheck className="w-3.5 h-3.5 shrink-0" />
                   <span>Guest Evaluator</span>
                 </div>
@@ -181,7 +181,7 @@ export default function LoginPage() {
 
           <div className="mt-6 text-center text-xs text-ink-400">
             Don&apos;t have an organization account?{" "}
-            <Link href="/auth/signup" className="font-bold text-amberAccent-400 hover:text-amberAccent-300">
+            <Link href="/auth/signup" className="font-bold text-cyanAccent-400 hover:text-cyanAccent-300">
               Create Organization Tenant →
             </Link>
           </div>

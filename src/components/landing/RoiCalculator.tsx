@@ -21,8 +21,8 @@ export const RoiCalculator: React.FC = () => {
     <section id="calculator" className="py-20 sm:py-24 bg-ink-950 border-b border-ink-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-amberAccent-400 text-xs font-mono">
-            <Calculator className="w-3.5 h-3.5 text-amberAccent-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-cyanAccent-400 text-xs font-mono">
+            <Calculator className="w-3.5 h-3.5 text-cyanAccent-400" />
             <span>PREDICTABLE TOKEN COST CONTROL</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -39,7 +39,7 @@ export const RoiCalculator: React.FC = () => {
             <div className="space-y-3">
               <div className="flex justify-between items-center text-xs">
                 <span className="font-bold text-ink-200">Team Size:</span>
-                <span className="font-mono text-amberAccent-400 text-sm font-bold bg-ink-850 px-3 py-1 rounded-lg border border-ink-700 shadow-xs">
+                <span className="font-mono text-cyanAccent-400 text-sm font-bold bg-ink-850 px-3 py-1 rounded-lg border border-ink-700 shadow-xs">
                   {teamSize} members
                 </span>
               </div>
@@ -49,14 +49,14 @@ export const RoiCalculator: React.FC = () => {
                 max={100}
                 value={teamSize}
                 onChange={(e) => setTeamSize(Number(e.target.value))}
-                className="w-full h-2 bg-ink-800 rounded-lg appearance-none cursor-pointer accent-amberAccent-500"
+                className="w-full h-2 bg-ink-800 rounded-lg appearance-none cursor-pointer accent-cyanAccent-500"
               />
             </div>
 
             <div className="space-y-3">
               <div className="flex justify-between items-center text-xs">
                 <span className="font-bold text-ink-200">Daily Queries Per Member:</span>
-                <span className="font-mono text-amberAccent-400 text-sm font-bold bg-ink-850 px-3 py-1 rounded-lg border border-ink-700 shadow-xs">
+                <span className="font-mono text-violetAccent-400 text-sm font-bold bg-ink-850 px-3 py-1 rounded-lg border border-ink-700 shadow-xs">
                   {queriesPerDay} queries/day
                 </span>
               </div>
@@ -66,7 +66,7 @@ export const RoiCalculator: React.FC = () => {
                 max={25}
                 value={queriesPerDay}
                 onChange={(e) => setQueriesPerDay(Number(e.target.value))}
-                className="w-full h-2 bg-ink-800 rounded-lg appearance-none cursor-pointer accent-iris-500"
+                className="w-full h-2 bg-ink-800 rounded-lg appearance-none cursor-pointer accent-violetAccent-500"
               />
             </div>
 
@@ -76,7 +76,7 @@ export const RoiCalculator: React.FC = () => {
                 <span>Upstash Redis 10 queries/day sliding window limit</span>
               </div>
               <div className="flex items-center gap-2">
-                <Database className="w-4 h-4 text-amberAccent-400" />
+                <Database className="w-4 h-4 text-cyanAccent-400" />
                 <span>In-memory token caching prevents duplicate embedding charges</span>
               </div>
             </div>
@@ -103,7 +103,7 @@ export const RoiCalculator: React.FC = () => {
               </div>
               <div className="bg-ink-900 p-3 rounded-xl border border-ink-700/80">
                 <span className="text-[10px] font-mono text-ink-400 font-semibold block">Actual API Cost</span>
-                <span className="text-sm font-bold font-mono text-amberAccent-400 mt-0.5 block">
+                <span className="text-sm font-bold font-mono text-cyanAccent-400 mt-0.5 block">
                   ${actualApiCost.toFixed(2)}/mo
                 </span>
               </div>
@@ -111,7 +111,7 @@ export const RoiCalculator: React.FC = () => {
 
             <Link
               href="/dashboard"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 text-ink-950 text-xs font-bold transition-all shadow-glowAmber"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-violetAccent-600 to-cyanAccent-500 hover:brightness-110 text-white text-xs font-bold transition-all shadow-glowDual"
             >
               <span>Test Free in Live Studio</span>
               <ArrowRight className="w-3.5 h-3.5" />

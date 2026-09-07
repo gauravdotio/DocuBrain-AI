@@ -77,14 +77,14 @@ export default function DashboardLayout({
           {/* Brand Logo Header */}
           <div className="h-16 px-5 border-b border-ink-800 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-iris-600 via-iris-500 to-amberAccent-500 flex items-center justify-center text-white shadow-glowIris border border-white/20 group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 flex items-center justify-center text-white shadow-glowViolet border border-white/20 group-hover:scale-105 transition-transform">
                 <Brain className="w-4 h-4" />
               </div>
               <span className="text-base font-bold text-white tracking-tight">
-                DocuBrain<span className="text-amberAccent-400 font-mono text-xs ml-1 px-1.5 py-0.5 rounded bg-amberAccent-500/15 border border-amberAccent-500/30">AI</span>
+                DocuBrain<span className="text-cyanAccent-400 font-mono text-xs ml-1 px-1.5 py-0.5 rounded bg-cyanAccent-500/15 border border-cyanAccent-500/30">AI</span>
               </span>
             </Link>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amberAccent-500/15 text-amberAccent-400 border border-amberAccent-500/30 font-semibold">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-violetAccent-500/15 text-violetAccent-400 border border-violetAccent-500/30 font-semibold">
               STUDIO
             </span>
           </div>
@@ -99,7 +99,7 @@ export default function DashboardLayout({
                 <span className="text-xs font-bold text-ink-200 truncate">
                   CloudMesh Global Corp
                 </span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-glowAmber shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-glowCyan shrink-0" />
               </div>
             </div>
           </div>
@@ -115,19 +115,19 @@ export default function DashboardLayout({
                   href={item.href}
                   className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                     isActive
-                      ? "bg-ink-800 text-amberAccent-400 border border-amberAccent-500/40 shadow-glowAmber"
+                      ? "bg-ink-800 text-cyanAccent-400 border border-cyanAccent-500/40 shadow-glowCyan"
                       : "text-ink-400 hover:text-white hover:bg-ink-850 border border-transparent"
                   }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <Icon className={`w-4 h-4 ${isActive ? "text-amberAccent-400" : "text-ink-400"}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? "text-cyanAccent-400" : "text-ink-400"}`} />
                     <span className="truncate">{item.name}</span>
                   </div>
                   {item.badge && (
                     <span
                       className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
                         isActive
-                          ? "bg-amberAccent-500/20 text-amberAccent-400 font-bold border border-amberAccent-500/30"
+                          ? "bg-cyanAccent-500/20 text-cyanAccent-400 font-bold border border-cyanAccent-500/30"
                           : "bg-ink-800 text-ink-400"
                       }`}
                     >
@@ -144,7 +144,7 @@ export default function DashboardLayout({
         <div className="p-3 border-t border-ink-800 bg-ink-900/60 space-y-2">
           <div className="flex items-center justify-between p-2 rounded-xl bg-ink-850 border border-ink-700/80">
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-7 h-7 rounded-lg bg-amberAccent-500/20 text-amberAccent-400 border border-amberAccent-500/30 font-bold text-xs flex items-center justify-center shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-violetAccent-500/20 text-violetAccent-400 border border-violetAccent-500/30 font-bold text-xs flex items-center justify-center shrink-0">
                 {currentUser.name.charAt(0)}
               </div>
               <div className="min-w-0">
@@ -164,7 +164,7 @@ export default function DashboardLayout({
           <div className="px-1 text-center">
             <Link
               href="/"
-              className="text-[11px] font-medium text-ink-400 hover:text-amberAccent-400 flex items-center justify-center gap-1 transition-colors"
+              className="text-[11px] font-medium text-ink-400 hover:text-cyanAccent-400 flex items-center justify-center gap-1 transition-colors"
             >
               <span>← View Marketing Site</span>
             </Link>
@@ -179,7 +179,7 @@ export default function DashboardLayout({
           <div className="flex items-center gap-2 text-xs text-ink-400">
             <span className="font-semibold text-white">DocuBrain</span>
             <span>/</span>
-            <span className="capitalize text-amberAccent-400 font-mono">
+            <span className="capitalize text-cyanAccent-400 font-mono">
               {pathname === "/dashboard"
                 ? "Live RAG Workspace"
                 : pathname.replace("/dashboard/", "").replace("-", " ")}
@@ -188,7 +188,7 @@ export default function DashboardLayout({
 
           <div className="flex items-center gap-3">
             {/* Rate Limit Badge */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amberAccent-500/30 bg-ink-850 text-amberAccent-400 text-xs font-mono">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-cyanAccent-500/30 bg-ink-850 text-cyanAccent-400 text-xs font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="font-bold">{rateLimit ? rateLimit.remaining : 10}/10 Queries</span>
               <span className="text-[10px] text-ink-400 font-sans hidden sm:inline">• Upstash Guardrail</span>

@@ -48,8 +48,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
           </div>
         ) : (
           <div>
-            <div className="flex items-center gap-2 text-amberAccent-400 font-mono text-xs uppercase tracking-wider mb-2">
-              <Sparkles className="w-4 h-4 text-amberAccent-400" />
+            <div className="flex items-center gap-2 text-cyanAccent-400 font-mono text-xs uppercase tracking-wider mb-2">
+              <Sparkles className="w-4 h-4 text-cyanAccent-400" />
               <span>Enterprise VIP Walkthrough</span>
             </div>
             <h2 className="text-xl font-bold text-white tracking-tight">Schedule a 15-Min Live Demo</h2>
@@ -68,7 +68,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Sarah Jenkins"
-                    className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-xs sm:text-sm text-white placeholder:text-ink-500 outline-none focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 transition-all"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-xs sm:text-sm text-white placeholder:text-ink-500 outline-none focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 transition-all"
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="sarah@company.com"
-                    className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-xs sm:text-sm text-white placeholder:text-ink-500 outline-none focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 transition-all"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-xs sm:text-sm text-white placeholder:text-ink-500 outline-none focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 transition-all"
                   />
                 </div>
               </div>
@@ -98,14 +98,14 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="CloudMesh Inc."
-                    className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-xs sm:text-sm text-white placeholder:text-ink-500 outline-none focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 transition-all"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-xs sm:text-sm text-white placeholder:text-ink-500 outline-none focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 transition-all"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 text-ink-950 font-bold text-xs sm:text-sm rounded-xl shadow-glowAmber transition-all flex items-center justify-center gap-2 mt-2"
+                className="w-full py-3 bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 text-white font-bold text-xs sm:text-sm rounded-xl shadow-glowDual transition-all flex items-center justify-center gap-2 mt-2"
               >
                 <span>Request Enterprise Demo</span>
                 <ArrowRight className="w-4 h-4" />
@@ -117,7 +117,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 SOC 2 Type II Certified
               </span>
-              <Link href="/dashboard" onClick={onClose} className="font-bold text-amberAccent-400 hover:text-amberAccent-300 transition-colors">
+              <Link href="/dashboard" onClick={onClose} className="font-bold text-cyanAccent-400 hover:text-cyanAccent-300 transition-colors">
                 Or enter Instant Studio →
               </Link>
             </div>

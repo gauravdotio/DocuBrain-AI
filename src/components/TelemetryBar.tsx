@@ -36,7 +36,7 @@ export const TelemetryBar: React.FC<TelemetryBarProps> = ({
 
         {/* Latency */}
         <div className="flex items-center gap-1.5 shrink-0">
-          <Clock className="w-3.5 h-3.5 text-amber-400" />
+          <Clock className="w-3.5 h-3.5 text-cyanAccent-400" />
           <span className="text-slate-500 font-sans">Latency:</span>
           <span className="text-slate-200">
             {telemetry ? `${telemetry.latencyMs}ms` : "—"}

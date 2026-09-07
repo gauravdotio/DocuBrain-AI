@@ -14,8 +14,8 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onRequestDemo }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl bg-gradient-to-r from-ink-900 via-ink-850 to-ink-900 p-8 sm:p-14 text-center overflow-hidden shadow-studio border border-ink-700/80 text-white">
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-ink-800 text-amberAccent-400 border border-ink-700">
-              <Sparkles className="w-3.5 h-3.5 text-amberAccent-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-ink-800 text-cyanAccent-400 border border-ink-700">
+              <Sparkles className="w-3.5 h-3.5 text-cyanAccent-400" />
               <span>READY TO ELIMINATE KNOWLEDGE SILOS?</span>
             </div>
 
@@ -30,10 +30,10 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onRequestDemo }) => {
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/dashboard"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-sm font-bold text-ink-950 bg-gradient-to-r from-amberAccent-400 via-amberAccent-500 to-amberAccent-400 hover:brightness-110 shadow-glowAmber transition-all hover:scale-[1.02]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 shadow-glowDual transition-all hover:scale-[1.02]"
               >
                 <span>Launch Studio Console</span>
-                <ArrowRight className="w-4 h-4 text-ink-950" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </Link>
 
               <button
@@ -51,7 +51,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onRequestDemo }) => {
                 SOC 2 Type II Architecture
               </span>
               <span className="flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-amberAccent-400" />
+                <Zap className="w-4 h-4 text-cyanAccent-400" />
                 Sub-180ms Streaming Latency
               </span>
             </div>

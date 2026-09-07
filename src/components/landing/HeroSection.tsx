@@ -72,20 +72,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
   return (
     <section className="relative pt-32 pb-24 lg:pt-36 lg:pb-28 overflow-hidden neural-grid border-b border-ink-700/70">
       {/* Background radial glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-gradient-to-tr from-iris-600/20 via-amberAccent-500/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-gradient-to-tr from-violetAccent-600/25 via-cyanAccent-500/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Eyebrow badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ink-800/90 border border-ink-700 text-amberAccent-400 text-xs font-mono mb-8 animate-fade-in shadow-sm">
-          <Terminal className="w-3.5 h-3.5 text-amberAccent-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ink-850/90 border border-ink-700 text-cyanAccent-400 text-xs font-mono mb-8 animate-fade-in shadow-glowCyan/10">
+          <Terminal className="w-3.5 h-3.5 text-cyanAccent-400" />
           <span>NEURAL RAG ENGINE • CITATION HIGHLIGHTING • REDIS GUARDRAIL</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-violetAccent-400 animate-pulse" />
         </div>
 
         {/* Main Headline */}
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-5xl mx-auto">
           Search 100-Page Contracts & Specs. <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-amberAccent-400 via-iris-400 to-amberAccent-300 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-violetAccent-400 via-cyanAccent-300 to-violetAccent-300 bg-clip-text text-transparent">
             Get Answers With Verifiable Proof.
           </span>
         </h1>
@@ -99,7 +99,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
         <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5">
           <Link
             href="/dashboard"
-            className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-ink-950 bg-gradient-to-r from-amberAccent-400 via-amberAccent-500 to-amberAccent-400 hover:brightness-110 active:scale-[0.98] rounded-xl shadow-glowAmber transition-all duration-150 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 active:scale-[0.98] rounded-xl shadow-glowViolet hover:shadow-glowCyan transition-all duration-150 flex items-center justify-center gap-2"
           >
             <span>Launch Neural Console</span>
             <ArrowRight className="w-4 h-4" />
@@ -108,9 +108,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
           <button
             type="button"
             onClick={onRequestDemo}
-            className="w-full sm:w-auto px-6 py-3.5 text-sm font-semibold text-ink-200 hover:text-white bg-ink-850 hover:bg-ink-800 border border-ink-700 rounded-xl transition-colors flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3.5 text-sm font-semibold text-ink-200 hover:text-white bg-ink-850 hover:bg-ink-800 border border-ink-700 hover:border-cyanAccent-500/40 rounded-xl transition-colors flex items-center justify-center gap-2"
           >
-            <Play className="w-4 h-4 text-amberAccent-400 fill-amberAccent-400" />
+            <Play className="w-4 h-4 text-cyanAccent-400 fill-cyanAccent-400" />
             <span>Request Walkthrough</span>
           </button>
         </div>
@@ -119,10 +119,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
         <div className="mt-14 max-w-5xl mx-auto text-left">
           <div className="flex items-center justify-between px-2 mb-3">
             <span className="text-[11px] font-mono text-ink-400 uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amberAccent-400" />
+              <Sparkles className="w-3.5 h-3.5 text-cyanAccent-400" />
               SELECT AN ENTERPRISE KNOWLEDGE SOURCE:
             </span>
-            <span className="text-[11px] font-mono text-emerald-400">
+            <span className="text-[11px] font-mono text-cyanAccent-400">
               ● 10/10 UPSTASH ALLOWANCE ACTIVE
             </span>
           </div>
@@ -132,11 +132,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               onClick={() => setActivePreset("sla")}
               className={`p-3 rounded-xl border text-left transition-all ${
                 activePreset === "sla"
-                  ? "bg-ink-800 border-amberAccent-500/80 shadow-glowAmber"
+                  ? "bg-ink-800 border-violetAccent-500/80 shadow-glowViolet"
                   : "bg-ink-850/60 border-ink-700/80 hover:bg-ink-800 hover:border-ink-600"
               }`}
             >
-              <div className="text-[10px] font-mono text-amberAccent-400 uppercase font-semibold">
+              <div className="text-[10px] font-mono text-violetAccent-400 uppercase font-semibold">
                 Enterprise SLA
               </div>
               <div className="text-xs font-bold text-white mt-0.5 truncate">
@@ -148,11 +148,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               onClick={() => setActivePreset("soc2")}
               className={`p-3 rounded-xl border text-left transition-all ${
                 activePreset === "soc2"
-                  ? "bg-ink-800 border-amberAccent-500/80 shadow-glowAmber"
+                  ? "bg-ink-800 border-cyanAccent-500/80 shadow-glowCyan"
                   : "bg-ink-850/60 border-ink-700/80 hover:bg-ink-800 hover:border-ink-600"
               }`}
             >
-              <div className="text-[10px] font-mono text-iris-400 uppercase font-semibold">
+              <div className="text-[10px] font-mono text-cyanAccent-400 uppercase font-semibold">
                 InfoSec & Audit
               </div>
               <div className="text-xs font-bold text-white mt-0.5 truncate">
@@ -164,11 +164,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               onClick={() => setActivePreset("fintech")}
               className={`p-3 rounded-xl border text-left transition-all ${
                 activePreset === "fintech"
-                  ? "bg-ink-800 border-amberAccent-500/80 shadow-glowAmber"
+                  ? "bg-ink-800 border-emeraldAccent-500/80 shadow-glowDual"
                   : "bg-ink-850/60 border-ink-700/80 hover:bg-ink-800 hover:border-ink-600"
               }`}
             >
-              <div className="text-[10px] font-mono text-mint-400 uppercase font-semibold">
+              <div className="text-[10px] font-mono text-emeraldAccent-400 uppercase font-semibold">
                 Financial Operations
               </div>
               <div className="text-xs font-bold text-white mt-0.5 truncate">
@@ -187,13 +187,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                 <span className="text-ink-500 ml-2 hidden sm:inline">|</span>
                 <span className="text-ink-300 text-[11px] ml-1 flex items-center gap-1.5">
-                  <Terminal className="w-3 h-3 text-amberAccent-400" />
+                  <Terminal className="w-3 h-3 text-cyanAccent-400" />
                   docubrain.ai/query/{activePreset}
                 </span>
               </div>
 
               <div className="flex items-center gap-3 text-[11px]">
-                <span className="text-emerald-400 flex items-center gap-1">
+                <span className="text-cyanAccent-400 flex items-center gap-1">
                   <CheckCircle2 className="w-3 h-3" />
                   100% Grounded
                 </span>
@@ -206,16 +206,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               <div className="lg:col-span-6 p-5 sm:p-6 space-y-3 bg-ink-850/40">
                 <div className="flex items-center justify-between text-[11px] font-mono text-ink-400">
                   <span className="flex items-center gap-1.5 text-white font-semibold">
-                    <FileText className="w-3.5 h-3.5 text-amberAccent-400" />
+                    <FileText className="w-3.5 h-3.5 text-violetAccent-400" />
                     Target Document Clause
                   </span>
-                  <span className="text-amberAccent-400 font-bold">{current.clause}</span>
+                  <span className="text-cyanAccent-400 font-bold">{current.clause}</span>
                 </div>
 
                 {/* Highlighted Passage */}
-                <div className="p-4 rounded-xl bg-amberAccent-500/10 border border-amberAccent-500/40 text-xs text-ink-100 leading-relaxed font-sans space-y-1.5 shadow-sm">
-                  <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-amberAccent-400 uppercase">
-                    <Sparkles className="w-3 h-3" />
+                <div className="p-4 rounded-xl bg-violetAccent-500/10 border border-violetAccent-500/40 text-xs text-ink-100 leading-relaxed font-sans space-y-1.5 shadow-sm">
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-violetAccent-300 uppercase">
+                    <Sparkles className="w-3 h-3 text-cyanAccent-400" />
                     Synchronized Passage Coordinate
                   </div>
                   <p className="italic text-ink-200">{current.excerpt}</p>
@@ -225,7 +225,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               {/* Right: Streaming Output & Citations (6 cols) */}
               <div className="lg:col-span-6 p-5 sm:p-6 space-y-4 bg-ink-900">
                 <div className="bg-ink-800/90 p-3 rounded-xl border border-ink-700 text-xs text-ink-200">
-                  <span className="text-[10px] font-mono text-amberAccent-400 font-bold block mb-1">
+                  <span className="text-[10px] font-mono text-cyanAccent-400 font-bold block mb-1">
                     VERIFIED QUERY:
                   </span>
                   &ldquo;{current.query}&rdquo;
@@ -234,10 +234,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
                 <div className="p-4 rounded-xl bg-ink-850/80 border border-ink-700 space-y-3">
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center gap-1.5 text-white font-bold">
-                      <Sparkles className="w-3.5 h-3.5 text-iris-400" />
+                      <Sparkles className="w-3.5 h-3.5 text-violetAccent-400" />
                       <span>RAG Streamed Answer</span>
                     </div>
-                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    <span className="text-[10px] font-mono text-cyanAccent-400 bg-cyanAccent-500/10 px-2 py-0.5 rounded border border-cyanAccent-500/20">
                       98% Confidence Match
                     </span>
                   </div>
@@ -247,8 +247,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
                   </p>
 
                   <div className="pt-2 flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono font-semibold bg-iris-500/15 text-iris-300 border border-iris-500/30">
-                      <BookOpen className="w-3 h-3 text-iris-400" />
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono font-semibold bg-cyanAccent-500/15 text-cyanAccent-300 border border-cyanAccent-500/30">
+                      <BookOpen className="w-3 h-3 text-cyanAccent-400" />
                       <span>{current.citation}</span>
                     </span>
                   </div>
@@ -260,14 +260,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
             <div className="px-5 py-2.5 bg-ink-950 border-t border-ink-700/80 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-ink-400">
               <div className="flex items-center gap-4 sm:gap-6">
                 <span className="flex items-center gap-1 text-ink-300">
-                  <Cpu className="w-3.5 h-3.5 text-iris-400" />
+                  <Cpu className="w-3.5 h-3.5 text-violetAccent-400" />
                   Gemini 1.5 Flash
                 </span>
-                <span className="flex items-center gap-1 text-amberAccent-400">
+                <span className="flex items-center gap-1 text-cyanAccent-400">
                   <Clock className="w-3.5 h-3.5" />
                   {current.latency} TTFT
                 </span>
-                <span className="flex items-center gap-1 text-mint-400">
+                <span className="flex items-center gap-1 text-emeraldAccent-400">
                   <Coins className="w-3.5 h-3.5" />
                   {current.cost}
                 </span>
@@ -275,7 +275,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
 
               <Link
                 href="/dashboard"
-                className="text-xs font-bold text-amberAccent-400 hover:text-white flex items-center gap-1"
+                className="text-xs font-bold text-cyanAccent-400 hover:text-white flex items-center gap-1 transition-colors"
               >
                 <span>Open Full Studio Console</span>
                 <ArrowRight className="w-3.5 h-3.5" />

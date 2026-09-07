@@ -18,17 +18,17 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) =
           {/* Distinct Neural Brand Mark */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-iris-600 via-iris-500 to-amberAccent-500 flex items-center justify-center text-white shadow-glowIris group-hover:scale-105 transition-transform border border-white/20">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 flex items-center justify-center text-white shadow-glowViolet group-hover:scale-105 transition-transform border border-white/20">
                 <Brain className="w-5 h-5" />
               </div>
-              <span className="w-2 h-2 rounded-full bg-amberAccent-400 absolute -top-0.5 -right-0.5 shadow-glowAmber animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-cyanAccent-400 absolute -top-0.5 -right-0.5 shadow-glowCyan animate-pulse" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="text-lg font-extrabold tracking-tight text-white leading-none">
                   DocuBrain
                 </span>
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-amberAccent-500/15 text-amberAccent-400 border border-amberAccent-500/30">
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-cyanAccent-500/15 text-cyanAccent-400 border border-cyanAccent-500/30">
                   RAG
                 </span>
               </div>
@@ -73,7 +73,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) =
             </Link>
             <Link
               href="/dashboard"
-              className="px-5 py-2.5 text-xs font-bold text-ink-950 bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 active:scale-[0.98] rounded-xl shadow-glowAmber transition-all duration-150 flex items-center gap-1.5"
+              className="px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 active:scale-[0.98] rounded-xl shadow-glowViolet hover:shadow-glowCyan transition-all duration-150 flex items-center gap-1.5"
             >
               <span>Launch Studio</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -84,7 +84,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) =
           <div className="lg:hidden flex items-center gap-2">
             <Link
               href="/dashboard"
-              className="px-3 py-1.5 text-xs font-bold text-ink-950 bg-amberAccent-400 rounded-lg"
+              className="px-3 py-1.5 text-xs font-bold text-white bg-violetAccent-600 rounded-lg"
             >
               Studio
             </Link>
@@ -120,7 +120,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onRequestDemo }) =
             <Link href="/auth/login" className="py-2 text-center text-ink-200 font-semibold bg-ink-800 rounded-lg">
               Sign In
             </Link>
-            <Link href="/dashboard" className="py-2.5 text-center text-ink-950 font-bold bg-amberAccent-400 rounded-lg">
+            <Link href="/dashboard" className="py-2.5 text-center text-white font-bold bg-gradient-to-r from-violetAccent-600 to-cyanAccent-500 rounded-lg shadow-glowViolet">
               Launch Studio
             </Link>
           </div>

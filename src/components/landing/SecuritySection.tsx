@@ -31,8 +31,8 @@ export const SecuritySection: React.FC = () => {
     <section id="security" className="py-20 sm:py-24 bg-ink-900 border-b border-ink-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-850 border border-ink-700 text-amberAccent-400 text-xs font-mono">
-            <Lock className="w-3.5 h-3.5 text-amberAccent-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-850 border border-ink-700 text-cyanAccent-400 text-xs font-mono">
+            <Lock className="w-3.5 h-3.5 text-cyanAccent-400" />
             <span>ENTERPRISE SECURITY STANDARDS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -49,9 +49,9 @@ export const SecuritySection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-ink-950 border border-ink-700/80 shadow-studio flex flex-col justify-between space-y-4 hover:border-amberAccent-500/50 transition-all group"
+                className="p-6 rounded-2xl bg-ink-950 border border-ink-700/80 shadow-studio flex flex-col justify-between space-y-4 hover:border-violetAccent-500/50 hover:shadow-glowViolet transition-all group"
               >
-                <div className="w-10 h-10 rounded-xl bg-ink-850 border border-ink-700 text-amberAccent-400 flex items-center justify-center shadow-glowAmber group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-ink-850 border border-ink-700 text-violetAccent-400 group-hover:text-cyanAccent-400 flex items-center justify-center shadow-glowViolet group-hover:scale-105 transition-all">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="space-y-1.5">

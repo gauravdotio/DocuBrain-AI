@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { RateLimitStatus } from "@/types";
 import { formatSecondsRemaining } from "@/lib/utils";
-import { Database, RotateCcw, ShieldCheck, Zap } from "lucide-react";
+import { Database, RotateCcw, ShieldCheck, Zap, X } from "lucide-react";
 
 interface QuotaBadgeProps {
   status: RateLimitStatus | null;
@@ -29,8 +29,8 @@ export const QuotaBadge: React.FC<QuotaBadgeProps> = ({
     colorClass = "text-rose-400 border-rose-500/30 bg-rose-500/10";
     dotColor = "bg-rose-400 animate-pulse";
   } else if (remaining <= 5) {
-    colorClass = "text-amber-400 border-amber-500/30 bg-amber-500/10";
-    dotColor = "bg-amber-400";
+    colorClass = "text-cyanAccent-400 border-cyanAccent-500/30 bg-cyanAccent-500/10";
+    dotColor = "bg-cyanAccent-400";
   }
 
   return (
@@ -59,16 +59,19 @@ export const QuotaBadge: React.FC<QuotaBadgeProps> = ({
                 <ShieldCheck className="w-4 h-4 text-brand-400" />
                 <span>Rate Limiting & Cost Control</span>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-hover text-slate-400 border border-surface-border">
-                {status?.provider || "Upstash Redis"}
-              </span>
+              <button
+                onClick={() => setShowPopover(false)}
+                className="text-slate-400 hover:text-white p-1"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
             </div>
 
-            <div className="py-3 space-y-2.5">
+            <div className="py-3 space-y-3">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-400">Daily Free Quota:</span>
-                <span className="font-mono font-semibold text-white">
-                  {remaining} of {limit} queries left
+                <span className="text-slate-400">Queries Remaining:</span>
+                <span className="font-mono font-bold text-white text-sm">
+                  {remaining} / {limit}
                 </span>
               </div>
 
@@ -79,7 +82,7 @@ export const QuotaBadge: React.FC<QuotaBadgeProps> = ({
                     remaining <= 2
                       ? "bg-rose-500"
                       : remaining <= 5
-                      ? "bg-amber-500"
+                      ? "bg-cyanAccent-500"
                       : "bg-emerald-500"
                   }`}
                   style={{ width: `${percentage}%` }}

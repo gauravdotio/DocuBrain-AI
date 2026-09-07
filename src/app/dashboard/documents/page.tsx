@@ -41,7 +41,7 @@ export default function DocumentsPage() {
 
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 text-ink-950 rounded-xl text-xs font-bold transition-all shadow-glowAmber"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violetAccent-600 to-cyanAccent-500 hover:brightness-110 text-white rounded-xl text-xs font-bold transition-all shadow-glowDual"
         >
           <Plus className="w-4 h-4" />
           <span>Upload & Vectorize</span>
@@ -58,7 +58,7 @@ export default function DocumentsPage() {
               onClick={() => setFilter(cat)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 ${
                 filter === cat
-                  ? "bg-amberAccent-500 text-ink-950 font-bold shadow-glowAmber"
+                  ? "bg-gradient-to-r from-violetAccent-500 to-cyanAccent-400 text-ink-950 font-bold shadow-glowDual"
                   : "text-ink-400 hover:text-white hover:bg-ink-850"
               }`}
             >
@@ -75,7 +75,7 @@ export default function DocumentsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search documents..."
-            className="w-full pl-9 pr-3 py-1.5 text-xs bg-ink-850 border border-ink-700 rounded-lg text-white placeholder:text-ink-500 focus:outline-none focus:border-amberAccent-500"
+            className="w-full pl-9 pr-3 py-1.5 text-xs bg-ink-850 border border-ink-700 rounded-lg text-white placeholder:text-ink-500 focus:outline-none focus:border-cyanAccent-500"
           />
         </div>
       </div>
@@ -101,11 +101,11 @@ export default function DocumentsPage() {
                 <tr key={doc.id} className="hover:bg-ink-850/60 transition-colors group">
                   <td className="py-4 px-5">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-ink-850 text-amberAccent-400 flex items-center justify-center shrink-0 border border-ink-700">
+                      <div className="w-9 h-9 rounded-xl bg-ink-850 text-cyanAccent-400 flex items-center justify-center shrink-0 border border-ink-700">
                         <FileText className="w-5 h-5" />
                       </div>
                       <div className="min-w-0">
-                        <div className="font-bold text-white group-hover:text-amberAccent-400 transition-colors">
+                        <div className="font-bold text-white group-hover:text-cyanAccent-400 transition-colors">
                           {doc.title}
                         </div>
                         <div className="text-[11px] text-ink-400 font-mono mt-0.5">
@@ -123,7 +123,7 @@ export default function DocumentsPage() {
 
                   <td className="py-4 px-4 font-mono text-ink-300">
                     <div>{doc.pageCount} Pages</div>
-                    <div className="text-[10px] text-amberAccent-400 font-semibold">{totalChunks} Chunks</div>
+                    <div className="text-[10px] text-cyanAccent-400 font-semibold">{totalChunks} Chunks</div>
                   </td>
 
                   <td className="py-4 px-4">
@@ -140,7 +140,7 @@ export default function DocumentsPage() {
                   <td className="py-4 px-5 text-right">
                     <Link
                       href="/dashboard"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-amberAccent-400 hover:text-ink-950 hover:bg-amberAccent-400 border border-amberAccent-500/40 transition-all"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-cyanAccent-400 hover:text-ink-950 hover:bg-cyanAccent-400 border border-cyanAccent-500/40 transition-all"
                     >
                       <span>Query in RAG</span>
                       <ArrowRight className="w-3.5 h-3.5" />

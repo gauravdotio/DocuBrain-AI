@@ -68,8 +68,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onRequestDemo })
     <section id="pricing" className="py-20 sm:py-24 bg-ink-950 border-b border-ink-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-amberAccent-400 text-xs font-mono">
-            <Zap className="w-3.5 h-3.5 text-amberAccent-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-cyanAccent-400 text-xs font-mono">
+            <Zap className="w-3.5 h-3.5 text-cyanAccent-400" />
             <span>SIMPLE, TRANSPARENT PLANS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -86,12 +86,12 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onRequestDemo })
               key={idx}
               className={`rounded-3xl p-8 flex flex-col justify-between transition-all relative ${
                 tier.featured
-                  ? "bg-ink-900 border-2 border-amberAccent-500 shadow-glowAmber scale-[1.02]"
+                  ? "bg-ink-900 border-2 border-violetAccent-500 shadow-glowDual scale-[1.02]"
                   : "bg-ink-900/70 border border-ink-700/80 shadow-studio"
               }`}
             >
               {tier.badge && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amberAccent-500 text-ink-950 tracking-wider shadow-glowAmber">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-gradient-to-r from-violetAccent-500 to-cyanAccent-400 text-ink-950 tracking-wider shadow-glowDual">
                   {tier.badge}
                 </span>
               )}
@@ -99,7 +99,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onRequestDemo })
               <div>
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-bold text-white tracking-tight">{tier.name}</h3>
-                  {tier.featured && <Zap className="w-4 h-4 text-amberAccent-400" />}
+                  {tier.featured && <Zap className="w-4 h-4 text-cyanAccent-400" />}
                 </div>
 
                 <p className="text-xs text-ink-400 mt-2 min-h-[32px]">{tier.description}</p>
@@ -129,7 +129,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onRequestDemo })
                   href={tier.ctaHref}
                   className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold transition-all ${
                     tier.featured
-                      ? "bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 text-ink-950 shadow-glowAmber"
+                      ? "bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 text-white shadow-glowDual"
                       : "bg-ink-800 hover:bg-ink-700 text-ink-200"
                   }`}
                 >

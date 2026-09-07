@@ -12,11 +12,11 @@ export const LandingFooter: React.FC = () => {
           {/* Col 1 */}
           <div className="space-y-3 md:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-iris-600 via-iris-500 to-amberAccent-500 flex items-center justify-center text-white shadow-glowIris border border-white/20 group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 flex items-center justify-center text-white shadow-glowViolet border border-white/20 group-hover:scale-105 transition-transform">
                 <Brain className="w-4 h-4" />
               </div>
               <span className="text-base font-bold text-white tracking-tight">
-                DocuBrain<span className="text-amberAccent-400 font-mono text-xs ml-1 px-1.5 py-0.5 rounded bg-amberAccent-500/15 border border-amberAccent-500/30">AI</span>
+                DocuBrain<span className="text-cyanAccent-400 font-mono text-xs ml-1 px-1.5 py-0.5 rounded bg-cyanAccent-500/15 border border-cyanAccent-500/30">AI</span>
               </span>
             </Link>
             <p className="text-ink-400 max-w-sm text-xs leading-relaxed font-sans">
@@ -34,22 +34,22 @@ export const LandingFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2 font-medium">
               <li>
-                <a href="#features" className="hover:text-amberAccent-400 transition-colors">
+                <a href="#features" className="hover:text-cyanAccent-400 transition-colors">
                   Features & RAG Pipeline
                 </a>
               </li>
               <li>
-                <a href="#use-cases" className="hover:text-amberAccent-400 transition-colors">
+                <a href="#use-cases" className="hover:text-cyanAccent-400 transition-colors">
                   Team Use Cases
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-amberAccent-400 transition-colors">
+                <a href="#calculator" className="hover:text-cyanAccent-400 transition-colors">
                   Token Budget Calculator
                 </a>
               </li>
               <li>
-                <a href="#security" className="hover:text-amberAccent-400 transition-colors">
+                <a href="#security" className="hover:text-cyanAccent-400 transition-colors">
                   Enterprise Security Matrix
                 </a>
               </li>
@@ -63,7 +63,7 @@ export const LandingFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2 font-medium">
               <li>
-                <Link href="/dashboard" className="text-amberAccent-400 hover:text-amberAccent-300 font-bold transition-colors">
+                <Link href="/dashboard" className="text-cyanAccent-400 hover:text-cyanAccent-300 font-bold transition-colors">
                   Launch Studio Console →
                 </Link>
               </li>

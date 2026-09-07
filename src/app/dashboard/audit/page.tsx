@@ -86,7 +86,7 @@ export default function AuditPage() {
                   {log.document}
                 </td>
 
-                <td className="py-4 px-4 font-mono text-amberAccent-400 font-semibold">
+                <td className="py-4 px-4 font-mono text-cyanAccent-400 font-semibold">
                   {log.citation}
                 </td>
 

@@ -28,8 +28,8 @@ export const TrustBar: React.FC = () => {
                 key={idx}
                 className="flex items-center gap-2.5 text-ink-400 hover:text-white transition-all duration-200 opacity-75 hover:opacity-100 hover:-translate-y-0.5 group cursor-default"
               >
-                <div className="w-8 h-8 rounded-lg bg-ink-800 border border-ink-700/80 flex items-center justify-center group-hover:border-amberAccent-500/40 group-hover:text-amberAccent-400 transition-colors">
-                  <Icon className="w-4 h-4 text-ink-400 group-hover:text-amberAccent-400 transition-colors" />
+                <div className="w-8 h-8 rounded-lg bg-ink-800 border border-ink-700/80 flex items-center justify-center group-hover:border-violetAccent-500/50 group-hover:text-cyanAccent-400 transition-colors">
+                  <Icon className="w-4 h-4 text-ink-400 group-hover:text-cyanAccent-400 transition-colors" />
                 </div>
                 <div className="text-left">
                   <span className="block font-bold text-xs text-ink-200 group-hover:text-white tracking-tight leading-tight transition-colors">

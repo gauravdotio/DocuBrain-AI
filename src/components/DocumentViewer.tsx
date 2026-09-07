@@ -280,7 +280,7 @@ export const DocumentViewer: React.FC<DocumentViewerProps> = ({
                   isHighlighted
                     ? "bg-brand-500/20 border-brand-400 ring-2 ring-brand-400/50 shadow-xl shadow-brand-500/20 scale-[1.01]"
                     : matchesSearch
-                    ? "bg-amber-500/10 border-amber-500/40"
+                    ? "bg-cyanAccent-500/15 border-cyanAccent-500/40"
                     : "bg-[#0C121D]/80 border-[#1E293B] hover:border-slate-700"
                 }`}
               >

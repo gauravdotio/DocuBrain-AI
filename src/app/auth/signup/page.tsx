@@ -26,11 +26,11 @@ export default function SignupPage() {
     <div className="min-h-screen bg-ink-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 neural-grid">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center mb-6">
         <Link href="/" className="inline-flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-iris-600 via-iris-500 to-amberAccent-500 flex items-center justify-center text-white shadow-glowIris border border-white/20 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 flex items-center justify-center text-white shadow-glowViolet border border-white/20 group-hover:scale-105 transition-transform">
             <Brain className="w-6 h-6" />
           </div>
           <span className="text-2xl font-bold tracking-tight text-white">
-            DocuBrain<span className="text-amberAccent-400 font-mono text-sm ml-1 px-1.5 py-0.5 rounded bg-amberAccent-500/15 border border-amberAccent-500/30">AI</span>
+            DocuBrain<span className="text-cyanAccent-400 font-mono text-sm ml-1 px-1.5 py-0.5 rounded bg-cyanAccent-500/15 border border-cyanAccent-500/30">AI</span>
           </span>
         </Link>
         <p className="mt-2 text-xs text-ink-400 font-medium">
@@ -60,7 +60,7 @@ export default function SignupPage() {
                   value={orgName}
                   onChange={(e) => setOrgName(e.target.value)}
                   placeholder="Acme Global Inc."
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 outline-none transition-all"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 outline-none transition-all"
                 />
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function SignupPage() {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Sarah Jenkins"
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 outline-none transition-all"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 outline-none transition-all"
                 />
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function SignupPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="sarah@acme.com"
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 outline-none transition-all"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 outline-none transition-all"
                 />
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function SignupPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Minimum 8 characters"
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-amberAccent-500 focus:ring-1 focus:ring-amberAccent-500 outline-none transition-all"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-ink-850 border border-ink-700 rounded-xl text-white placeholder:text-ink-500 text-xs sm:text-sm focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 outline-none transition-all"
                 />
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 active:scale-[0.98] text-ink-950 text-xs sm:text-sm font-bold rounded-xl shadow-glowAmber transition-all flex items-center justify-center gap-2 mt-2"
+              className="w-full py-3 bg-gradient-to-r from-violetAccent-600 via-violetAccent-500 to-cyanAccent-500 hover:brightness-110 active:scale-[0.98] text-white text-xs sm:text-sm font-bold rounded-xl shadow-glowDual transition-all flex items-center justify-center gap-2 mt-2"
             >
               <span>{isSubmitting ? "Provisioning Tenant..." : "Create Organization Workspace"}</span>
               <ArrowRight className="w-4 h-4" />
@@ -128,7 +128,7 @@ export default function SignupPage() {
 
           <div className="mt-6 text-center text-xs text-ink-400">
             Already have an organization?{" "}
-            <Link href="/auth/login" className="font-bold text-amberAccent-400 hover:text-amberAccent-300">
+            <Link href="/auth/login" className="font-bold text-cyanAccent-400 hover:text-cyanAccent-300">
               Sign In Instead →
             </Link>
           </div>

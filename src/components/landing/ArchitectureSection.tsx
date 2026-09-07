@@ -102,8 +102,8 @@ export const ArchitectureSection: React.FC = () => {
     <section id="features" className="py-20 sm:py-24 bg-ink-950 border-b border-ink-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-amberAccent-400 text-xs font-mono">
-            <Cpu className="w-3.5 h-3.5 text-amberAccent-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-900 border border-ink-700 text-cyanAccent-400 text-xs font-mono">
+            <Cpu className="w-3.5 h-3.5 text-cyanAccent-400" />
             <span>NEURAL ARCHITECTURE PIPELINE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -125,11 +125,11 @@ export const ArchitectureSection: React.FC = () => {
                 onClick={() => setActiveTab(idx)}
                 className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold border transition-all duration-150 ${
                   isSelected
-                    ? "bg-amberAccent-500 border-amberAccent-400 text-ink-950 shadow-glowAmber"
+                    ? "bg-gradient-to-r from-violetAccent-500 to-cyanAccent-500 border-cyanAccent-400 text-ink-950 font-bold shadow-glowDual"
                     : "bg-ink-900 border-ink-700 text-ink-300 hover:border-ink-600 hover:text-white"
                 }`}
               >
-                <TabIcon className={`w-3.5 h-3.5 ${isSelected ? "text-ink-950" : "text-amberAccent-400"}`} />
+                <TabIcon className={`w-3.5 h-3.5 ${isSelected ? "text-ink-950" : "text-cyanAccent-400"}`} />
                 <span>{feat.tabLabel}</span>
               </button>
             );
@@ -140,7 +140,7 @@ export const ArchitectureSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-ink-900/90 p-8 sm:p-12 rounded-3xl border border-ink-700/80 shadow-studio">
           {/* Left: Feature description */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-iris-600 via-iris-500 to-amberAccent-500 text-white flex items-center justify-center shadow-glowIris border border-white/20">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-violetAccent-600 via-violetAccent-500 to-cyanAccent-400 text-white flex items-center justify-center shadow-glowViolet border border-white/20">
               <Icon className="w-6 h-6" />
             </div>
 
@@ -164,7 +164,7 @@ export const ArchitectureSection: React.FC = () => {
             <div className="pt-4">
               <Link
                 href="/dashboard"
-                className="inline-flex items-center gap-2 text-sm font-bold text-amberAccent-400 hover:text-amberAccent-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-cyanAccent-400 hover:text-cyanAccent-300 transition-colors"
               >
                 <span>Experience this live in the studio console</span>
                 <ArrowRight className="w-4 h-4" />
@@ -177,7 +177,7 @@ export const ArchitectureSection: React.FC = () => {
             <div className="w-full bg-ink-950 rounded-2xl shadow-2xl border border-ink-700 overflow-hidden font-mono text-xs">
               <div className="bg-ink-900 px-4 py-3 border-b border-ink-700/80 text-ink-300 flex items-center justify-between">
                 <span className="flex items-center gap-2 text-[11px]">
-                  <Sparkles className="w-3.5 h-3.5 text-amberAccent-400" />
+                  <Sparkles className="w-3.5 h-3.5 text-cyanAccent-400" />
                   {current.mockupTitle}
                 </span>
                 <span className="text-emerald-400 text-[10px]">● LIVE_VERIFIED</span>
@@ -189,8 +189,8 @@ export const ArchitectureSection: React.FC = () => {
                 <div className="p-4 rounded-xl bg-ink-900/90 border border-ink-700/80 space-y-2">
                   <div className="text-[10px] uppercase text-ink-500 font-bold">Telemetry Stream</div>
                   <div className="text-emerald-400">✓ Ingestion Status: 100% Vectorized</div>
-                  <div className="text-amberAccent-400">✓ Token Budget: Upstash Redis sliding window</div>
-                  <div className="text-iris-400">✓ Grounding Accuracy: 98.4% Confidence Match</div>
+                  <div className="text-cyanAccent-400">✓ Token Budget: Upstash Redis sliding window</div>
+                  <div className="text-violetAccent-400">✓ Grounding Accuracy: 98.4% Confidence Match</div>
                 </div>
               </div>
             </div>

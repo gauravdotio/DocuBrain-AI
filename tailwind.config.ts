@@ -11,30 +11,33 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          950: "#050811",
-          900: "#090D16",
-          850: "#0D1321",
-          800: "#131C2E",
-          700: "#1B273E",
-          600: "#273856",
+          950: "#04060B",
+          900: "#080B14",
+          850: "#0D111E",
+          800: "#121829",
+          700: "#1A2238",
+          600: "#263252",
           500: "#475569",
           400: "#94A3B8",
           300: "#CBD5E1",
           200: "#E2E8F0",
-          100: "#F1F5F9",
+          100: "#F8FAFC",
         },
-        iris: {
-          400: "#818CF8",
-          500: "#6366F1",
-          600: "#4F46E5",
-          700: "#4338CA",
+        violetAccent: {
+          300: "#C4B5FD",
+          400: "#A78BFA",
+          500: "#8B5CF6",
+          600: "#7C3AED",
+          700: "#6D28D9",
         },
-        amberAccent: {
-          400: "#FBBF24",
-          500: "#F59E0B",
-          600: "#D97706",
+        cyanAccent: {
+          300: "#67E8F9",
+          400: "#22D3EE",
+          500: "#06B6D4",
+          600: "#0891B2",
+          700: "#0E7490",
         },
-        mint: {
+        emeraldAccent: {
           400: "#34D399",
           500: "#10B981",
           600: "#059669",
@@ -45,9 +48,10 @@ const config: Config = {
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       boxShadow: {
-        studio: "0 20px 45px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08)",
-        glowIris: "0 0 30px -5px rgba(99, 102, 241, 0.3)",
-        glowAmber: "0 0 25px -5px rgba(245, 158, 11, 0.25)",
+        studio: "0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08)",
+        glowViolet: "0 0 30px -4px rgba(139, 92, 246, 0.45)",
+        glowCyan: "0 0 30px -4px rgba(6, 182, 212, 0.4)",
+        glowDual: "0 0 35px -5px rgba(139, 92, 246, 0.35), 0 0 20px -5px rgba(6, 182, 212, 0.3)",
       },
       animation: {
         "fade-in": "fadeIn 0.3s ease-out forwards",
