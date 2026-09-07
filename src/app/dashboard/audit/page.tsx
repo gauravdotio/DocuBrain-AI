@@ -48,19 +48,19 @@ export default function AuditPage() {
   ];
 
   return (
-    <div className="p-6 sm:p-8 space-y-6 h-full overflow-y-auto bg-slate-50">
+    <div className="p-6 sm:p-8 space-y-6 h-full overflow-y-auto bg-ink-950 text-ink-100">
       <div>
-        <h1 className="text-xl font-bold text-slate-900 tracking-tight">
+        <h1 className="text-xl font-bold text-white tracking-tight">
           Compliance & Verification Audit Trail
         </h1>
-        <p className="text-xs text-slate-500 mt-0.5">
+        <p className="text-xs text-ink-400 mt-0.5">
           Immutable audit record of every document query, citation source, and compliance match.
         </p>
       </div>
 
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-card overflow-hidden">
+      <div className="bg-ink-900 rounded-2xl border border-ink-800 shadow-studio overflow-hidden">
         <table className="w-full text-left text-xs">
-          <thead className="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-mono text-[11px] uppercase tracking-wider">
+          <thead className="bg-ink-950/80 border-b border-ink-800 text-ink-400 font-mono text-[11px] uppercase tracking-wider">
             <tr>
               <th className="py-3.5 px-5">Timestamp & User</th>
               <th className="py-3.5 px-4">Query Verified</th>
@@ -70,33 +70,33 @@ export default function AuditPage() {
               <th className="py-3.5 px-5 text-right">Match Rating</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 text-slate-700 font-sans">
+          <tbody className="divide-y divide-ink-800 text-ink-200 font-sans">
             {auditLogs.map((log) => (
-              <tr key={log.id} className="hover:bg-slate-50/70 transition-colors">
+              <tr key={log.id} className="hover:bg-ink-850/60 transition-colors">
                 <td className="py-4 px-5">
-                  <div className="font-bold text-slate-900">{log.user}</div>
-                  <div className="text-[11px] text-slate-400 font-mono mt-0.5">{log.timestamp}</div>
+                  <div className="font-bold text-white">{log.user}</div>
+                  <div className="text-[11px] text-ink-500 font-mono mt-0.5">{log.timestamp}</div>
                 </td>
 
-                <td className="py-4 px-4 font-medium text-slate-800 max-w-xs">
+                <td className="py-4 px-4 font-medium text-ink-200 max-w-xs">
                   &ldquo;{log.query}&rdquo;
                 </td>
 
-                <td className="py-4 px-4 text-slate-600">
+                <td className="py-4 px-4 text-ink-400">
                   {log.document}
                 </td>
 
-                <td className="py-4 px-4 font-mono text-brand-600 font-semibold">
+                <td className="py-4 px-4 font-mono text-amberAccent-400 font-semibold">
                   {log.citation}
                 </td>
 
-                <td className="py-4 px-4 font-mono text-slate-500">
+                <td className="py-4 px-4 font-mono text-ink-500">
                   {log.latency}
                 </td>
 
                 <td className="py-4 px-5 text-right">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{log.confidence}</span>
                   </span>
                 </td>

@@ -5,17 +5,17 @@ import Link from "next/link";
 import {
   ArrowRight,
   Sparkles,
-  Star,
-  Play,
-  CheckCircle2,
-  ShieldCheck,
-  Lock,
-  FileText,
+  Search,
   BookOpen,
   Cpu,
   Clock,
   Coins,
   Shield,
+  FileText,
+  Terminal,
+  CheckCircle2,
+  Lock,
+  Play,
 } from "lucide-react";
 
 interface HeroSectionProps {
@@ -23,233 +23,263 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
-  const [activePreset, setActivePreset] = useState<"sla" | "fintech">("sla");
+  const [activePreset, setActivePreset] = useState<"sla" | "soc2" | "fintech">("sla");
+
+  const presets = {
+    sla: {
+      tag: "CloudMesh Enterprise SLA 2026",
+      clause: "Section 2.1 • Clause ¶ 1 (Page 2)",
+      excerpt:
+        "“If CloudMesh fails to meet 99.00% uptime in any billing month, the customer receives an automatic 50% Service Credit. RTO mandates operational failover in <15 minutes with zero loss of transactional state.”",
+      query: "What is the exact financial refund if uptime falls below 99.0%?",
+      answer:
+        "Falling below **99.00% uptime** triggers the maximum contract penalty of a **50% Service Credit** on monthly recurring charges. Disaster recovery requires an **RTO < 15 minutes**.",
+      citation: "Doc 1 • p.2 (Clause 2.1)",
+      latency: "154ms",
+      tokens: "318 tokens",
+      cost: "$0.000042",
+    },
+    soc2: {
+      tag: "NexusGuard SOC 2 Type II Standard",
+      clause: "Section 2.1 • Triage SLAs (Page 2)",
+      excerpt:
+        "“P1 (Critical): Confirmed unauthorized access to customer data or total platform downtime. Response SLA: 15 minutes. Resolution target: < 4 hours. Automated PagerDuty escalation to CISO if unacknowledged within 5 minutes.”",
+      query: "What is the mandatory response SLA for a P1 Critical incident?",
+      answer:
+        "A P1 Critical incident enforces a strict **15-minute response SLA** with automated PagerDuty escalation to the VP of Engineering and CISO if unacknowledged in 5 minutes.",
+      citation: "Doc 3 • p.2 (Clause 2.1)",
+      latency: "142ms",
+      tokens: "284 tokens",
+      cost: "$0.000038",
+    },
+    fintech: {
+      tag: "FinPulse FY2026 Financial Report",
+      clause: "Page 1 • Unit Economics (Page 2)",
+      excerpt:
+        "“Ending ARR reached $28.6M (+130.6% YoY) with Net Revenue Retention climbing to 134.2%. Customer Lifetime Value (LTV) is estimated at $38,200 with blended CAC of $4,250 yielding an LTV:CAC ratio of 8.9x.”",
+      query: "What was our ending ARR and blended LTV:CAC unit economics?",
+      answer:
+        "Ending ARR reached **$28.6M (+130.6% YoY)** with a **134.2% Net Revenue Retention (NRR)**. The LTV:CAC ratio is **8.9x** with an ultra-short **5.8-month payback period**.",
+      citation: "Doc 2 • p.2 (Clause 2.2)",
+      latency: "168ms",
+      tokens: "342 tokens",
+      cost: "$0.000045",
+    },
+  };
+
+  const current = presets[activePreset];
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white subtle-grid border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Headline & Value Prop */}
-          <div className="lg:col-span-6 space-y-6 text-center lg:text-left animate-slide-up">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200/70 text-brand-700 text-xs font-semibold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-              <span>Built for High-Growth Tech, Legal & Finance Teams</span>
-            </div>
+    <section className="relative pt-32 pb-24 lg:pt-36 lg:pb-28 overflow-hidden neural-grid border-b border-ink-700/70">
+      {/* Background radial glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-gradient-to-tr from-iris-600/20 via-amberAccent-500/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-              Enterprise Knowledge, <br className="hidden sm:inline" />
-              <span className="text-brand-500">Without the Hallucinations</span>
-            </h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        {/* Eyebrow badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ink-800/90 border border-ink-700 text-amberAccent-400 text-xs font-mono mb-8 animate-fade-in shadow-sm">
+          <Terminal className="w-3.5 h-3.5 text-amberAccent-400" />
+          <span>NEURAL RAG ENGINE • CITATION HIGHLIGHTING • REDIS GUARDRAIL</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        </div>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              DocuBrain AI replaces manual document reviews and repetitive Slack pings with an audit-ready knowledge engine — streaming verified answers with highlighted clause citations and Upstash token budgeting.
-            </p>
+        {/* Main Headline */}
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-5xl mx-auto">
+          Search 100-Page Contracts & Specs. <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-amberAccent-400 via-iris-400 to-amberAccent-300 bg-clip-text text-transparent">
+            Get Answers With Verifiable Proof.
+          </span>
+        </h1>
 
-            <div className="flex items-center justify-center lg:justify-start gap-1.5 text-sm font-semibold text-slate-600">
-              <span className="flex items-center gap-0.5 text-amber-500">
-                <Star className="w-4 h-4 fill-amber-500" />
-                <span>5.0</span>
-              </span>
-              <span aria-hidden="true">·</span>
-              <span>Trusted by 250+ engineering & compliance teams</span>
-            </div>
+        {/* Subtitle */}
+        <p className="mt-6 text-base sm:text-lg text-ink-300 max-w-3xl mx-auto leading-relaxed font-sans">
+          Stop manually scanning 80-page agreements and waiting on Slack replies. DocuBrain AI indexes complex documents and streams factual answers grounded in verified clause coordinates, protected by Upstash Redis token budgeting.
+        </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-              <Link
-                href="/dashboard"
-                className="w-full sm:w-auto px-7 py-3.5 text-base font-bold text-white bg-brand-500 hover:bg-brand-600 active:bg-brand-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
-              >
-                <span>Launch Live App</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+        {/* Action Buttons */}
+        <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <Link
+            href="/dashboard"
+            className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-ink-950 bg-gradient-to-r from-amberAccent-400 via-amberAccent-500 to-amberAccent-400 hover:brightness-110 active:scale-[0.98] rounded-xl shadow-glowAmber transition-all duration-150 flex items-center justify-center gap-2"
+          >
+            <span>Launch Neural Console</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
 
-              <button
-                type="button"
-                onClick={onRequestDemo}
-                className="w-full sm:w-auto px-6 py-3.5 text-base font-semibold text-slate-700 hover:text-brand-700 active:bg-slate-100 bg-white hover:bg-slate-50 border border-slate-300 rounded-xl shadow-xs transition-all duration-150 flex items-center justify-center gap-2"
-              >
-                <Play className="w-4 h-4 text-brand-500 fill-brand-500" />
-                <span>Request a Demo</span>
-              </button>
-            </div>
+          <button
+            type="button"
+            onClick={onRequestDemo}
+            className="w-full sm:w-auto px-6 py-3.5 text-sm font-semibold text-ink-200 hover:text-white bg-ink-850 hover:bg-ink-800 border border-ink-700 rounded-xl transition-colors flex items-center justify-center gap-2"
+          >
+            <Play className="w-4 h-4 text-amberAccent-400 fill-amberAccent-400" />
+            <span>Request Walkthrough</span>
+          </button>
+        </div>
 
-            {/* Proof Points */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs text-slate-500 font-medium">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>Zero login friction</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-brand-500 shrink-0" />
-                <span>Verifiable clause citations</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Lock className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>Upstash Redis rate-limited</span>
-              </div>
-            </div>
+        {/* Interactive Command Palette Selector in Hero */}
+        <div className="mt-14 max-w-5xl mx-auto text-left">
+          <div className="flex items-center justify-between px-2 mb-3">
+            <span className="text-[11px] font-mono text-ink-400 uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amberAccent-400" />
+              SELECT AN ENTERPRISE KNOWLEDGE SOURCE:
+            </span>
+            <span className="text-[11px] font-mono text-emerald-400">
+              ● 10/10 UPSTASH ALLOWANCE ACTIVE
+            </span>
           </div>
 
-          {/* Right Column: Tilted 3D Enterprise Mockup */}
-          <div className="lg:col-span-6 relative animate-slide-up" style={{ animationDelay: "150ms" }}>
-            <div className="absolute -inset-4 bg-gradient-to-tr from-brand-500/15 via-tealAccent-500/10 to-transparent rounded-3xl filter blur-2xl -z-10 opacity-70" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4">
+            <button
+              onClick={() => setActivePreset("sla")}
+              className={`p-3 rounded-xl border text-left transition-all ${
+                activePreset === "sla"
+                  ? "bg-ink-800 border-amberAccent-500/80 shadow-glowAmber"
+                  : "bg-ink-850/60 border-ink-700/80 hover:bg-ink-800 hover:border-ink-600"
+              }`}
+            >
+              <div className="text-[10px] font-mono text-amberAccent-400 uppercase font-semibold">
+                Enterprise SLA
+              </div>
+              <div className="text-xs font-bold text-white mt-0.5 truncate">
+                CloudMesh 99.99% Agreement
+              </div>
+            </button>
 
-            <div className="transform lg:perspective-1000 lg:rotate-y-[-2deg] transition-transform duration-500 hover:rotate-0">
-              <div className="w-full bg-white rounded-2xl shadow-mockup border border-slate-200 overflow-hidden font-sans text-left">
-                {/* Mockup Browser Chrome Bar */}
-                <div className="bg-slate-900 px-4 py-3 flex items-center justify-between text-xs text-slate-300 border-b border-slate-800">
-                  <div className="flex items-center space-x-2">
-                    <div className="flex space-x-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                    </div>
-                    <span className="text-slate-600 text-xs hidden sm:inline ml-2">|</span>
-                    <span className="font-mono text-[11px] text-slate-300 flex items-center gap-1.5 ml-1">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      https://acme.docubrain.portal/knowledge/contract-408
-                    </span>
-                  </div>
+            <button
+              onClick={() => setActivePreset("soc2")}
+              className={`p-3 rounded-xl border text-left transition-all ${
+                activePreset === "soc2"
+                  ? "bg-ink-800 border-amberAccent-500/80 shadow-glowAmber"
+                  : "bg-ink-850/60 border-ink-700/80 hover:bg-ink-800 hover:border-ink-600"
+              }`}
+            >
+              <div className="text-[10px] font-mono text-iris-400 uppercase font-semibold">
+                InfoSec & Audit
+              </div>
+              <div className="text-xs font-bold text-white mt-0.5 truncate">
+                NexusGuard SOC 2 Playbook
+              </div>
+            </button>
 
-                  {/* Preset switcher */}
-                  <div className="flex items-center space-x-1 bg-slate-800/90 rounded-md p-0.5 border border-slate-700">
-                    <button
-                      type="button"
-                      onClick={() => setActivePreset("sla")}
-                      className={`px-2 py-0.5 text-[10px] font-medium rounded transition-colors ${
-                        activePreset === "sla"
-                          ? "bg-brand-500 text-white shadow-xs"
-                          : "text-slate-400 hover:text-slate-200"
-                      }`}
-                    >
-                      SLA Agreement
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setActivePreset("fintech")}
-                      className={`px-2 py-0.5 text-[10px] font-medium rounded transition-colors ${
-                        activePreset === "fintech"
-                          ? "bg-brand-500 text-white shadow-xs"
-                          : "text-slate-400 hover:text-slate-200"
-                      }`}
-                    >
-                      FY2026 10-K
-                    </button>
-                  </div>
+            <button
+              onClick={() => setActivePreset("fintech")}
+              className={`p-3 rounded-xl border text-left transition-all ${
+                activePreset === "fintech"
+                  ? "bg-ink-800 border-amberAccent-500/80 shadow-glowAmber"
+                  : "bg-ink-850/60 border-ink-700/80 hover:bg-ink-800 hover:border-ink-600"
+              }`}
+            >
+              <div className="text-[10px] font-mono text-mint-400 uppercase font-semibold">
+                Financial Operations
+              </div>
+              <div className="text-xs font-bold text-white mt-0.5 truncate">
+                FinPulse FY2026 10-K Metrics
+              </div>
+            </button>
+          </div>
+
+          {/* Live Dual-Pane Inspector Canvas */}
+          <div className="rounded-2xl bg-ink-900 border border-ink-700 shadow-studio overflow-hidden">
+            {/* Inspector Window Bar */}
+            <div className="h-10 px-4 bg-ink-950 border-b border-ink-700/80 flex items-center justify-between text-xs font-mono text-ink-400">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                <span className="text-ink-500 ml-2 hidden sm:inline">|</span>
+                <span className="text-ink-300 text-[11px] ml-1 flex items-center gap-1.5">
+                  <Terminal className="w-3 h-3 text-amberAccent-400" />
+                  docubrain.ai/query/{activePreset}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-[11px]">
+                <span className="text-emerald-400 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" />
+                  100% Grounded
+                </span>
+              </div>
+            </div>
+
+            {/* Split Inspection View */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-ink-700/80 bg-ink-900/90">
+              {/* Left: Source Document Passage (6 cols) */}
+              <div className="lg:col-span-6 p-5 sm:p-6 space-y-3 bg-ink-850/40">
+                <div className="flex items-center justify-between text-[11px] font-mono text-ink-400">
+                  <span className="flex items-center gap-1.5 text-white font-semibold">
+                    <FileText className="w-3.5 h-3.5 text-amberAccent-400" />
+                    Target Document Clause
+                  </span>
+                  <span className="text-amberAccent-400 font-bold">{current.clause}</span>
                 </div>
 
-                {/* Mockup Top Header */}
-                <div className="p-4 sm:p-5 border-b border-slate-200 bg-slate-50/80 flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-9 h-9 rounded-lg bg-brand-900 text-white font-bold text-xs flex items-center justify-center shadow-xs">
-                      {activePreset === "sla" ? "CM" : "FP"}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                          {activePreset === "sla"
-                            ? "CloudMesh Enterprise SLA 2026"
-                            : "FinPulse FY2026 Financial Operations"}
-                        </h4>
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-brand-50 text-brand-700 border border-brand-200/60 font-mono">
-                          Page 2 of 3
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-slate-500">
-                        {activePreset === "sla"
-                          ? "Clause 2.1: Uptime Commitment & Financial Credit Schedule"
-                          : "Clause 1.2: Annual Recurring Revenue & Net Revenue Retention"}
-                      </p>
-                    </div>
+                {/* Highlighted Passage */}
+                <div className="p-4 rounded-xl bg-amberAccent-500/10 border border-amberAccent-500/40 text-xs text-ink-100 leading-relaxed font-sans space-y-1.5 shadow-sm">
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-amberAccent-400 uppercase">
+                    <Sparkles className="w-3 h-3" />
+                    Synchronized Passage Coordinate
                   </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      10/10 Redis Quota
-                    </span>
-                  </div>
-                </div>
-
-                {/* Split Content Inside Mockup */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 bg-white">
-                  {/* Left: Highlighted Clause in Document */}
-                  <div className="p-4 space-y-3 bg-slate-50/40">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
-                      <span className="flex items-center gap-1 font-semibold text-slate-700">
-                        <FileText className="w-3.5 h-3.5 text-brand-600" />
-                        Target Document Clause
-                      </span>
-                      <span className="text-brand-600 font-bold">¶ Clause 2.1</span>
-                    </div>
-
-                    <div className="p-3 rounded-xl bg-brand-50/80 border border-brand-200 text-xs text-slate-800 leading-relaxed space-y-1 relative">
-                      <div className="flex items-center gap-1 text-[10px] font-semibold text-brand-700 uppercase font-mono">
-                        <Sparkles className="w-3 h-3 text-brand-600" />
-                        Synchronized Highlight
-                      </div>
-                      <p className="italic">
-                        {activePreset === "sla"
-                          ? "“If CloudMesh fails to meet 99.00% uptime in any billing month, the customer receives an automatic 50% Service Credit. RTO requires restoration in <15 minutes.”"
-                          : "“FinPulse achieved $28.6M in ending ARR (+130.6% YoY) with Net Revenue Retention (NRR) expanding to 134.2% and gross margin of 81.5%.”"}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Right: AI Stream & Citation Pill */}
-                  <div className="p-4 space-y-3">
-                    <div className="flex items-center justify-between text-[11px] font-mono">
-                      <span className="flex items-center gap-1 font-semibold text-slate-700">
-                        <Sparkles className="w-3.5 h-3.5 text-brand-500" />
-                        Streaming Answer
-                      </span>
-                      <span className="text-emerald-600 font-bold">98% Match</span>
-                    </div>
-
-                    <div className="text-xs text-slate-700 space-y-2 leading-relaxed">
-                      <p>
-                        {activePreset === "sla"
-                          ? "Dropping below 99.00% uptime triggers a **50% Service Credit** applied to the subsequent invoice with a strict 15-minute RTO."
-                          : "Ending ARR reached **$28.6M (+130.6% YoY)** with **134.2% NRR** and a rapid **5.8-month payback period**."}
-                      </p>
-
-                      <div className="pt-2 flex items-center gap-1.5">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-brand-50 text-brand-700 border border-brand-200 font-mono shadow-xs">
-                          <BookOpen className="w-3 h-3 text-brand-500" />
-                          <span>Doc 1, p.2 (Clause 2.1)</span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mockup Telemetry Footer */}
-                <div className="px-4 py-2.5 bg-slate-900 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1 text-slate-200">
-                      <Cpu className="w-3 h-3 text-brand-400" />
-                      Gemini 1.5 Flash
-                    </span>
-                    <span className="flex items-center gap-1 text-amber-400">
-                      <Clock className="w-3 h-3" />
-                      158ms TTFT
-                    </span>
-                    <span className="flex items-center gap-1 text-emerald-400">
-                      <Coins className="w-3 h-3" />
-                      $0.000042
-                    </span>
-                  </div>
-
-                  <Link
-                    href="/dashboard"
-                    className="text-xs font-bold text-brand-400 hover:text-white flex items-center gap-1"
-                  >
-                    <span>Launch Live</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
+                  <p className="italic text-ink-200">{current.excerpt}</p>
                 </div>
               </div>
+
+              {/* Right: Streaming Output & Citations (6 cols) */}
+              <div className="lg:col-span-6 p-5 sm:p-6 space-y-4 bg-ink-900">
+                <div className="bg-ink-800/90 p-3 rounded-xl border border-ink-700 text-xs text-ink-200">
+                  <span className="text-[10px] font-mono text-amberAccent-400 font-bold block mb-1">
+                    VERIFIED QUERY:
+                  </span>
+                  &ldquo;{current.query}&rdquo;
+                </div>
+
+                <div className="p-4 rounded-xl bg-ink-850/80 border border-ink-700 space-y-3">
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-1.5 text-white font-bold">
+                      <Sparkles className="w-3.5 h-3.5 text-iris-400" />
+                      <span>RAG Streamed Answer</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                      98% Confidence Match
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-ink-200 leading-relaxed font-sans">
+                    {current.answer}
+                  </p>
+
+                  <div className="pt-2 flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono font-semibold bg-iris-500/15 text-iris-300 border border-iris-500/30">
+                      <BookOpen className="w-3 h-3 text-iris-400" />
+                      <span>{current.citation}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mockup Telemetry Footer */}
+            <div className="px-5 py-2.5 bg-ink-950 border-t border-ink-700/80 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-ink-400">
+              <div className="flex items-center gap-4 sm:gap-6">
+                <span className="flex items-center gap-1 text-ink-300">
+                  <Cpu className="w-3.5 h-3.5 text-iris-400" />
+                  Gemini 1.5 Flash
+                </span>
+                <span className="flex items-center gap-1 text-amberAccent-400">
+                  <Clock className="w-3.5 h-3.5" />
+                  {current.latency} TTFT
+                </span>
+                <span className="flex items-center gap-1 text-mint-400">
+                  <Coins className="w-3.5 h-3.5" />
+                  {current.cost}
+                </span>
+              </div>
+
+              <Link
+                href="/dashboard"
+                className="text-xs font-bold text-amberAccent-400 hover:text-white flex items-center gap-1"
+              >
+                <span>Open Full Studio Console</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         </div>

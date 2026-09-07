@@ -14,9 +14,9 @@ export const TrustBar: React.FC = () => {
   ];
 
   return (
-    <div className="py-12 bg-white border-b border-slate-200/80">
+    <div className="py-10 bg-ink-900 border-b border-ink-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-slate-500 mb-8">
+        <p className="text-center text-[11px] font-mono uppercase tracking-widest text-ink-400 mb-8">
           Trusted by modern engineering, legal & financial teams
         </p>
 
@@ -26,14 +26,16 @@ export const TrustBar: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="flex items-center gap-2 text-slate-600 hover:text-slate-900 grayscale hover:grayscale-0 transition-all duration-200 opacity-85 hover:opacity-100 hover:-translate-y-0.5 group"
+                className="flex items-center gap-2.5 text-ink-400 hover:text-white transition-all duration-200 opacity-75 hover:opacity-100 hover:-translate-y-0.5 group cursor-default"
               >
-                <Icon className="w-5 h-5 text-slate-500 group-hover:text-brand-600 transition-colors" />
+                <div className="w-8 h-8 rounded-lg bg-ink-800 border border-ink-700/80 flex items-center justify-center group-hover:border-amberAccent-500/40 group-hover:text-amberAccent-400 transition-colors">
+                  <Icon className="w-4 h-4 text-ink-400 group-hover:text-amberAccent-400 transition-colors" />
+                </div>
                 <div className="text-left">
-                  <span className="block font-bold text-xs text-slate-800 tracking-tight leading-tight">
+                  <span className="block font-bold text-xs text-ink-200 group-hover:text-white tracking-tight leading-tight transition-colors">
                     {logo.name}
                   </span>
-                  <span className="block text-[9px] text-slate-500 tracking-wider uppercase font-medium">
+                  <span className="block text-[9px] text-ink-500 tracking-wider uppercase font-mono">
                     {logo.subtitle}
                   </span>
                 </div>

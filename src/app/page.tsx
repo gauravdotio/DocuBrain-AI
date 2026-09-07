@@ -18,7 +18,7 @@ export default function LandingPage() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col selection:bg-brand-500 selection:text-white">
+    <div className="min-h-screen bg-ink-950 text-ink-100 flex flex-col selection:bg-amberAccent-500 selection:text-ink-950">
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
 

@@ -27,21 +27,21 @@ export default function DocumentsPage() {
   });
 
   return (
-    <div className="p-6 sm:p-8 space-y-6 h-full overflow-y-auto bg-slate-50">
+    <div className="p-6 sm:p-8 space-y-6 h-full overflow-y-auto bg-ink-950 text-ink-100">
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900 tracking-tight">
+          <h1 className="text-xl font-bold text-white tracking-tight">
             Enterprise Documents Repository
           </h1>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <p className="text-xs text-ink-400 mt-0.5">
             Indexed corporate knowledge sources with semantic sliding-window chunks.
           </p>
         </div>
 
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-xl text-xs font-bold transition-all shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amberAccent-400 to-amberAccent-500 hover:brightness-110 text-ink-950 rounded-xl text-xs font-bold transition-all shadow-glowAmber"
         >
           <Plus className="w-4 h-4" />
           <span>Upload & Vectorize</span>
@@ -49,7 +49,7 @@ export default function DocumentsPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 rounded-2xl border border-slate-200 shadow-card">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-ink-900 p-3 rounded-2xl border border-ink-800 shadow-studio">
         {/* Category Tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto">
           {["All", "Enterprise SLA", "Financial & Metrics", "Security & Compliance"].map((cat) => (
@@ -58,8 +58,8 @@ export default function DocumentsPage() {
               onClick={() => setFilter(cat)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 ${
                 filter === cat
-                  ? "bg-brand-500 text-white shadow-xs"
-                  : "text-slate-600 hover:bg-slate-100"
+                  ? "bg-amberAccent-500 text-ink-950 font-bold shadow-glowAmber"
+                  : "text-ink-400 hover:text-white hover:bg-ink-850"
               }`}
             >
               {cat}
@@ -69,21 +69,21 @@ export default function DocumentsPage() {
 
         {/* Search */}
         <div className="relative w-full sm:w-64">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="w-4 h-4 text-ink-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search documents..."
-            className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="w-full pl-9 pr-3 py-1.5 text-xs bg-ink-850 border border-ink-700 rounded-lg text-white placeholder:text-ink-500 focus:outline-none focus:border-amberAccent-500"
           />
         </div>
       </div>
 
       {/* Documents Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-card overflow-hidden">
+      <div className="bg-ink-900 rounded-2xl border border-ink-800 shadow-studio overflow-hidden">
         <table className="w-full text-left text-xs">
-          <thead className="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-mono text-[11px] uppercase tracking-wider">
+          <thead className="bg-ink-950/80 border-b border-ink-800 text-ink-400 font-mono text-[11px] uppercase tracking-wider">
             <tr>
               <th className="py-3.5 px-5">Document Name</th>
               <th className="py-3.5 px-4">Category</th>
@@ -93,22 +93,22 @@ export default function DocumentsPage() {
               <th className="py-3.5 px-5 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 text-slate-700 font-sans">
+          <tbody className="divide-y divide-ink-800 text-ink-200 font-sans">
             {filteredDocs.map((doc) => {
               const totalChunks = doc.pages.reduce((acc, p) => acc + p.chunks.length, 0);
 
               return (
-                <tr key={doc.id} className="hover:bg-slate-50/70 transition-colors group">
+                <tr key={doc.id} className="hover:bg-ink-850/60 transition-colors group">
                   <td className="py-4 px-5">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 border border-brand-100">
+                      <div className="w-9 h-9 rounded-xl bg-ink-850 text-amberAccent-400 flex items-center justify-center shrink-0 border border-ink-700">
                         <FileText className="w-5 h-5" />
                       </div>
                       <div className="min-w-0">
-                        <div className="font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <div className="font-bold text-white group-hover:text-amberAccent-400 transition-colors">
                           {doc.title}
                         </div>
-                        <div className="text-[11px] text-slate-400 font-mono mt-0.5">
+                        <div className="text-[11px] text-ink-400 font-mono mt-0.5">
                           {doc.fileSize} • PDF/Markdown
                         </div>
                       </div>
@@ -116,31 +116,31 @@ export default function DocumentsPage() {
                   </td>
 
                   <td className="py-4 px-4">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-ink-850 text-ink-300 border border-ink-700">
                       {doc.category}
                     </span>
                   </td>
 
-                  <td className="py-4 px-4 font-mono text-slate-600">
+                  <td className="py-4 px-4 font-mono text-ink-300">
                     <div>{doc.pageCount} Pages</div>
-                    <div className="text-[10px] text-brand-600 font-semibold">{totalChunks} Chunks</div>
+                    <div className="text-[10px] text-amberAccent-400 font-semibold">{totalChunks} Chunks</div>
                   </td>
 
                   <td className="py-4 px-4">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                       <span>100% Indexed</span>
                     </span>
                   </td>
 
-                  <td className="py-4 px-4 text-slate-500 font-mono text-[11px]">
+                  <td className="py-4 px-4 text-ink-400 font-mono text-[11px]">
                     {doc.updatedAt}
                   </td>
 
                   <td className="py-4 px-5 text-right">
                     <Link
                       href="/dashboard"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-brand-600 hover:text-white hover:bg-brand-500 border border-brand-200 hover:border-brand-500 transition-all shadow-xs"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-amberAccent-400 hover:text-ink-950 hover:bg-amberAccent-400 border border-amberAccent-500/40 transition-all"
                     >
                       <span>Query in RAG</span>
                       <ArrowRight className="w-3.5 h-3.5" />
