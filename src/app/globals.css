@@ -14,17 +14,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Crisp Modern SaaS Grid with Soft Radial Mask */
+/* Crisp Modern SaaS Grid - Clean, subtle, no mask cutting child elements */
 .saas-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-}
-
-.saas-grid-mask {
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 70%, transparent 100%);
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
 }
 
 /* Subtle dot grid */
@@ -66,4 +61,3 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
