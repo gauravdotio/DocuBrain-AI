@@ -61,10 +61,12 @@ const config: Config = {
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       boxShadow: {
-        card: "0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.03)",
-        cardHover: "0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04)",
-        mockup: "0 25px 50px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(15, 23, 42, 0.06)",
-        button: "0 1px 2px 0 rgba(0, 102, 255, 0.2)",
+        subtle: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        card: "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02)",
+        cardHover: "0 12px 28px -6px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03)",
+        mockup: "0 25px 60px -15px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(15, 23, 42, 0.06)",
+        bento: "0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.06)",
+        button: "0 1px 2px 0 rgba(0, 102, 255, 0.25), 0 0 0 1px rgba(0, 102, 255, 0.1)",
         buttonHover: "0 4px 14px 0 rgba(0, 102, 255, 0.35)",
         studio: "0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08)",
         glowViolet: "0 0 30px -4px rgba(139, 92, 246, 0.45)",
@@ -75,6 +77,7 @@ const config: Config = {
         "fade-in": "fadeIn 0.3s ease-out forwards",
         "slide-up": "slideUp 0.4s ease-out forwards",
         pulseGlow: "pulseGlow 2.5s infinite ease-in-out",
+        shimmer: "shimmer 2.5s infinite linear",
       },
       keyframes: {
         fadeIn: {
@@ -88,6 +91,10 @@ const config: Config = {
         pulseGlow: {
           "0%, 100%": { opacity: "0.6" },
           "50%": { opacity: "1" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
     },
